@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Noto Sans Ethiopic', sans-serif; }
-    body { background: #f5f6f8; color: #111827; padding-bottom: 82px; line-height: 1.5; }
+    body { background: #f5f6f8; color: #111827; padding-bottom: 82px; line-height: 1.55; }
     a { text-decoration: none; }
 
     /* Top Header */
@@ -73,12 +73,22 @@
     .btn-add-cart.added { background: #16a34a; }
     .btn-details { width: 100%; background: #f8fafc; color: #374151; border: 1px solid #e5e7eb; padding: 9px; border-radius: 12px; font-weight: 600; font-size: 13px; cursor: pointer; }
 
-    /* Guides Page & Official Links */
+    /* Guides Page & Interactive Article Reader */
     .guide-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
-    .g-pill { background: #ffffff; border: 1px solid #e5e7eb; padding: 7px 14px; border-radius: 99px; font-size: 13px; font-weight: 700; color: #374151; }
-    .guide-item { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 16px; margin-bottom: 10px; }
+    .g-pill { background: #ffffff; border: 1px solid #e5e7eb; padding: 7px 14px; border-radius: 99px; font-size: 13px; font-weight: 700; color: #374151; cursor: pointer; }
+    .g-pill:hover { border-color: #5b46f6; color: #5b46f6; }
+    .guide-item { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 16px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: pointer; transition: 0.15s; }
+    .guide-item:hover { border-color: #5b46f6; background: #fafafe; }
     .guide-item h4 { font-size: 15px; font-weight: 800; margin-bottom: 4px; color: #111827; }
     .guide-item p { font-size: 13px; color: #6b7280; }
+    .guide-arrow { font-size: 18px; font-weight: 800; color: #9ca3af; }
+
+    .article-box { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px; margin-bottom: 16px; }
+    .btn-back-guides { background: #eef2ff; color: #5b46f6; border: none; padding: 8px 14px; border-radius: 10px; font-weight: 700; font-size: 13px; cursor: pointer; margin-bottom: 14px; display: inline-flex; align-items: center; gap: 6px; }
+    .article-box h3 { font-size: 19px; font-weight: 800; color: #111827; margin-bottom: 10px; }
+    .article-box p { font-size: 14px; color: #374151; margin-bottom: 12px; }
+    .article-box ul { padding-left: 18px; font-size: 14px; color: #374151; margin-bottom: 14px; }
+    .article-box li { margin-bottom: 6px; }
 
     .official-section { text-align: center; margin-top: 28px; padding-top: 20px; border-top: 1px solid #e5e7eb; }
     .official-title { font-size: 14px; font-weight: 700; color: #6b7280; margin-bottom: 14px; }
@@ -210,31 +220,47 @@
     <div id="cart-container"></div>
   </div>
 
-  <!-- TAB 3: GUIDES -->
+  <!-- TAB 3: GUIDES (Interactive Full Guide Reader) -->
   <div id="page-guides" class="tab-page">
-    <div class="guide-pills">
-      <span class="g-pill">እቅድ እና ልኬት</span>
-      <span class="g-pill">ዋጋዎች</span>
-      <span class="g-pill">ሀገራት</span>
-      <span class="g-pill">ለቻናል ባለቤቶች</span>
-      <span class="g-pill">እገዛ</span>
+    <div id="guides-home">
+      <div class="guide-pills">
+        <button class="g-pill" onclick="openArticle('plan')">እቅድ እና ልኬት</button>
+        <button class="g-pill" onclick="openArticle('prices')">ዋጋዎች</button>
+        <button class="g-pill" onclick="openArticle('regions')">ሀገራት</button>
+        <button class="g-pill" onclick="openArticle('owners')">ለቻናል ባለቤቶች</button>
+        <button class="g-pill" onclick="openArticle('help')">እገዛ</button>
+      </div>
+
+      <h2 style="font-size:20px; font-weight:800; margin-bottom:4px;">አጀማመር (Getting started)</h2>
+      <p style="font-size:13px; color:#6b7280; margin-bottom:14px;">ዝርዝሩን ለማንበብ ከታች ያሉትን ርዕሶች ይንኩ።</p>
+
+      <div class="guide-item" onclick="openArticle('create')">
+        <div>
+          <h4>በPAYchat ላይ ማስታወቂያ እንዴት መፍጠር ይቻላል?</h4>
+          <p>ቻናሎችን እዚህ ይምረጡ፤ ከዚያም በPAYchat Mini App ውስጥ ማስታወቂያዎን ይፍጠሩና ይክፈሉ።</p>
+        </div>
+        <span class="guide-arrow">›</span>
+      </div>
+
+      <div class="guide-item" onclick="openArticle('explained')">
+        <div>
+          <h4>የቴሌግራም ማስታወቂያ ማብራሪያ</h4>
+          <p>የቻናል ፖስቶች (Channel posts) እና Sponsored Messages ያላቸው ልዩነት።</p>
+        </div>
+        <span class="guide-arrow">›</span>
+      </div>
+
+      <div class="guide-item" onclick="openArticle('topics')">
+        <div>
+          <h4>የቴሌግራም ቻናሎችን በዘርፍ ይፈልጉ</h4>
+          <p>ምድቦችን (መዝናኛ፣ ዜና፣ ክሪፕቶ፣ ቴክኖሎጂ፣ ላይፍ ስታይል) ያስሱ እና ዋጋዎችን ያወዳድሩ።</p>
+        </div>
+        <span class="guide-arrow">›</span>
+      </div>
     </div>
 
-    <h2 style="font-size:20px; font-weight:800; margin-bottom:4px;">አጀማመር (Getting started)</h2>
-    <p style="font-size:13px; color:#6b7280; margin-bottom:14px;">የቻናል ማስታወቂያ እንዴት እንደሚሰራ እና ከየት መጀመር እንዳለብዎ ይወቁ።</p>
-
-    <div class="guide-item">
-      <h4>በPAYchat ላይ ማስታወቂያ እንዴት መፍጠር ይቻላል?</h4>
-      <p>ቻናሎችን እዚህ ይምረጡ፤ ከዚያም በPAYchat Mini App ውስጥ ማስታወቂያዎን ይፍጠሩና ይክፈሉ።</p>
-    </div>
-    <div class="guide-item">
-      <h4>የቴሌግራም ማስታወቂያ ማብራሪያ</h4>
-      <p>የቻናል ፖስቶች (Channel posts) እና Sponsored Messages ያላቸው ልዩነት።</p>
-    </div>
-    <div class="guide-item">
-      <h4>የቴሌግራም ቻናሎችን በዘርፍ ይፈልጉ</h4>
-      <p>ምድቦችን (መዝናኛ፣ ዜና፣ ክሪፕቶ፣ ቴክኖሎጂ፣ ላይፍ ስታይል) ያስሱ እና ዋጋዎችን ያወዳድሩ።</p>
-    </div>
+    <!-- Dynamic Full Guide Article View -->
+    <div id="guide-reader" style="display:none;"></div>
 
     <!-- Official Support & Social Channels -->
     <div class="official-section">
@@ -282,9 +308,90 @@
       { id: 7, name: "Ethio Online Education", handle: "@EthioEduHub", cat: "ትምህርት", country: "ET", viewsList: 62, subs: "68.0K", avg: "18.5K", err: "27%", price: 4.00 }
     ];
 
+    const guideArticles = {
+      create: {
+        title: "በPAYchat ላይ ማስታወቂያ እንዴት መፍጠር ይቻላል? (5 ቀላል ደረጃዎች)",
+        body: `
+          <p>በEthio PAYchat Ads አማካኝነት በኢትዮጵያ እና በዓለም አቀፍ ታዋቂ የቴሌግራም ቻናሎች ላይ ማስታወቂያ ማሰራት እጅግ ቀላል ነው፦</p>
+          <ul>
+            <li><strong>ደረጃ 1 — ቻናሎችን ይምረጡ፦</strong> Browse ገጽ ላይ በዘርፍ እና በእይታ ብዛት አወዳድረው የሚፈልጓቸውን ቻናሎች "ወደ ቅርጫት ጨምር" ይበሉ።</li>
+            <li><strong>ደረጃ 2 — ቅርጫትዎን ይገምግሙ፦</strong> Cart ታብ ውስጥ ገብተው የመረጧቸውን ቻናሎች እና ጠቅላላ ዋጋውን በUSDT ያረጋግጡ።</li>
+            <li><strong>ደረጃ 3 — PAYchat Mini App ይክፈቱ፦</strong> "PAYchat ላይ ይክፈሉ" የሚለውን ሲነኩ ቀጥታ ወደ @PAYchat_aibot ይወስድዎታል።</li>
+            <li><strong>ደረጃ 4 — ማስታወቂያዎን ይጫኑ፦</strong> የሚለቀቀውን ጽሁፍ፣ ፎቶ ወይም ቪዲዮ እና የሚለቀቅበትን ሰዓት ይምረጡ።</li>
+            <li><strong>ደረጃ 5 — በEscrow ዋስትና ይክፈሉ፦</strong> ማስታወቂያው ቻናሉ ላይ ለ24 ሰዓት ካልተለቀቀ ገንዘብዎ 100% ተመላሽ ይሆናል።</li>
+          </ul>
+          <a href="https://t.me/PAYchat_aibot" class="btn-purple-full">አሁኑኑ PAYchat ክፈት →</a>
+        `
+      },
+      explained: {
+        title: "የቴሌግራም ማስታወቂያ ማብራሪያ (Channel Posts vs Sponsored Messages)",
+        body: `
+          <p>በቴሌግራም ላይ ማስታወቂያ ለመስራት ሁለት ዋና መንገዶች አሉ፦</p>
+          <ul>
+            <li><strong>1. የቻናል ፖስቶች (In-Channel Posts in USDT)፦</strong> በPAYchat ላይ የሚያገኙት አገልግሎት ነው። የቻናሉ ባለቤት ፎቶ፣ ቪዲዮ እና ሊንክ ያለው ሙሉ ፖስት ለ24 ሰዓት በቻናሉ ላይ ይለቅልዎታል።</li>
+            <li><strong>2. Telegram Official Sponsored Messages፦</strong> ከታች በትንሽ ጽሁፍ ብቻ የሚታይና ከፍተኛ በጀት (በTON) የሚጠይቅ ነው።</li>
+          </ul>
+          <p><strong>ለምን PAYchat ይመረጣል?</strong> ከ1 USDT ጀምሮ በቋሚ ዋጋ፣ ያለምንም ተጨማሪ ኮሚሽን (0% fee) በቀጥታ ለኢትዮጵያውያን ታዳሚዎች መድረስ ስለሚያስችል ነው።</p>
+        `
+      },
+      topics: {
+        title: "የቴሌግራም ቻናሎችን በዘርፍ እንዴት መምረጥ ይቻላል?",
+        body: `
+          <p>ትክክለኛውን ደንበኛ ለማግኘት ከንግድዎ ጋር የሚሄድ ዘርፍ መምረጥ ወሳኝ ነው፦</p>
+          <ul>
+            <li><strong>መዝናኛ እና ላይፍ ስታይል፦</strong> ለአዳዲስ አፕሊኬሽኖች፣ ለዩቲዩብ/ቲክቶክ ቻናል ማሳደጊያ እና ለሸማች ምርቶች ተስማሚ ነው።</li>
+            <li><strong>ክሪፕቶ እና ንግድ፦</strong> ለፋይናንስ፣ ለትሬዲንግ እና ለኦንላይን ቢዝነስ ማስታወቂያዎች ከፍተኛ ውጤት ያስገኛል።</li>
+            <li><strong>ዜና እና ቴክኖሎጂ፦</strong> ለሰፊ ተደራሽነት እና ለዲጂታል አገልግሎቶች በጣም ተመራጭ ነው።</li>
+          </ul>
+          <button class="btn-purple-full" onclick="goTab('browse', document.querySelectorAll('.nav-btn')[0])">ቻናሎችን አሁን ይመልከቱ →</button>
+        `
+      },
+      plan: {
+        title: "እቅድ እና ልኬት (Reach, Views & ERR)",
+        body: `<p>ማስታወቂያ ከመግዛትዎ በፊት የቻናሉን <strong>Avg. views (አማካይ እይታ)</strong> እና <strong>Reach / ERR</strong> ይመልከቱ። ከ15% በላይ Reach ያላቸው ቻናሎች ንቁ ተከታዮች አሏቸው።</p>`
+      },
+      prices: {
+        title: "የማስታወቂያ ዋጋዎች (Pricing & 0% Fee)",
+        body: `<p>በEthio PAYchat Ads ላይ <strong>0% ተጨማሪ ክፍያ</strong> ነው። የቻናሉ ባለቤት ያስቀመጠውን ቀጥተኛ ዋጋ (ከ1 USDT ጀምሮ) ብቻ ይከፍላሉ። አዲስ ተመዝጋቢዎች እስከ <strong>$30 ቦነስ</strong> ማግኘት ይችላሉ።</p>`
+      },
+      regions: {
+        title: "ሀገራት እና ቋንቋዎች (ኢትዮጵያ እና ዓለም አቀፍ)",
+        body: `<p>Browse ገጽ ላይ ያለውን የሀገር መምረጫ (<strong>🇪🇹 ኢትዮጵያ</strong> ወይም <strong>🌐 ዓለም አቀፍ</strong>) በመጠቀም በአማርኛ ወይም በእንግሊዝኛ የሚሰሩ ቻናሎችን ለይተው ማግኘት ይችላሉ።</p>`
+      },
+      owners: {
+        title: "ለቻናል ባለቤቶች — ቻናልዎን ወደ ገቢ ይቀይሩ",
+        body: `<p>የቴሌግራም ቻናል ካለዎት በ<strong>@PAYchat_aibot</strong> ላይ በነጻ በማስመዝገብ የማስታወቂያ ዋጋዎን እራስዎ ወስነው በቀጥታ <strong>USDT</strong> መቀበል ይችላሉ።</p><a href="https://t.me/PAYchat_aibot" class="btn-purple-full">ቻናልዎን ያስመዝግቡ →</a>`
+      },
+      help: {
+        title: "እገዛ እና የደንበኞች ድጋፍ",
+        body: `<p>ስለ ክፍያ፣ ስለ Escrow ዋስትና ወይም ስለ ማስታወቂያ አሰራር ጥያቄ ካለዎት ከታች ባለው የማህበረሰብ ግሩፕ (<strong>@paychat_group</strong>) ወይም ቦት (<strong>@PAYchat_aibot</strong>) ያግኙን።</p>`
+      }
+    };
+
     let curCat = 'all';
     let maxBudget = 99999;
     let cart = [];
+
+    function openArticle(key) {
+      const art = guideArticles[key];
+      if (!art) return;
+      document.getElementById('guides-home').style.display = 'none';
+      const reader = document.getElementById('guide-reader');
+      reader.style.display = 'block';
+      reader.innerHTML = `
+        <div class="article-box">
+          <button class="btn-back-guides" onclick="closeArticle()">← ወደ መመሪያዎች ተመለስ</button>
+          <h3>${art.title}</h3>
+          ${art.body}
+        </div>
+      `;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function closeArticle() {
+      document.getElementById('guide-reader').style.display = 'none';
+      document.getElementById('guides-home').style.display = 'block';
+    }
 
     function renderList() {
       const q = document.getElementById('search-input').value.toLowerCase();
@@ -406,6 +513,7 @@
       document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       if (name === 'cart') renderCart();
+      if (name === 'guides') closeArticle();
     }
 
     renderList();
