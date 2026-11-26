@@ -3,378 +3,412 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ethio PAYchat Ads — በኢትዮጵያ የቴሌግራም ማስታወቂያ መግዣ መድረክ</title>
-  <meta name="description" content="በኢትዮጵያ ታዋቂ የቴሌግራም ቻናሎች ላይ በUSDT Escrow ዋስትና ማስታወቂያ ይግዙ። 0% ተጨማሪ ክፍያ፣ 24-ሰዓት ፈጣን ፖስት!" />
+  <title>Ethio PAYchat Ads — የቴሌግራም ቻናል ማስታወቂያ መግዣ</title>
+  <meta name="description" content="Ethio PAYchat Ads: በኢትዮጵያ እና በዓለም አቀፍ የቴሌግራም ቻናሎች ላይ በUSDT Escrow ዋስትና ማስታወቂያ ይግዙ።" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Noto Sans Ethiopic', sans-serif; }
-    body { background: #f8fafc; color: #0f172a; line-height: 1.6; }
+    body { background: #f5f6f8; color: #111827; padding-bottom: 82px; line-height: 1.5; }
     a { text-decoration: none; }
 
-    /* Top Navbar */
-    .navbar { background: #ffffff; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
-    .nav-container { max-width: 1140px; margin: 0 auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
-    .logo { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 800; color: #0f172a; }
-    .logo-badge { width: 32px; height: 32px; border-radius: 10px; background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 16px; }
-    .logo span { color: #4f46e5; }
-    .nav-links { display: flex; gap: 22px; align-items: center; }
-    .nav-links a { color: #475569; font-weight: 600; font-size: 14px; transition: 0.2s; }
-    .nav-links a:hover { color: #4f46e5; }
-    .nav-right { display: flex; gap: 10px; align-items: center; }
-    .btn-cart { background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; padding: 8px 14px; border-radius: 10px; font-weight: 700; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 6px; }
-    .cart-pill { background: #4f46e5; color: #fff; padding: 1px 7px; border-radius: 99px; font-size: 12px; }
-    .btn-primary { background: #4f46e5; color: #fff; padding: 9px 18px; border-radius: 10px; font-weight: 700; font-size: 13px; transition: 0.2s; }
-    .btn-primary:hover { background: #4338ca; }
+    /* Top Header */
+    header { background: #ffffff; padding: 12px 16px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .brand { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 18px; color: #111827; }
+    .brand-icon { width: 26px; height: 26px; border-radius: 50%; background: #5b46f6; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+    .brand span { color: #5b46f6; }
+    .btn-open-top { background: #5b46f6; color: #fff; padding: 8px 16px; border-radius: 99px; font-weight: 700; font-size: 13px; }
 
-    /* Hero Section */
-    .hero { background: radial-gradient(circle at top right, #eef2ff, #ffffff 60%); border-bottom: 1px solid #e2e8f0; padding: 56px 20px; }
-    .hero-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 36px; align-items: center; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 6px; background: #eef2ff; color: #4f46e5; font-size: 13px; font-weight: 700; padding: 5px 12px; border-radius: 99px; margin-bottom: 14px; }
-    .hero h1 { font-size: 36px; font-weight: 800; line-height: 1.25; color: #0f172a; margin-bottom: 14px; }
-    .hero p { font-size: 16px; color: #475569; margin-bottom: 24px; }
-    .hero-cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
-    .btn-lg { background: #4f46e5; color: #fff; padding: 13px 24px; border-radius: 12px; font-weight: 700; font-size: 15px; }
-    .btn-outline { background: #fff; color: #0f172a; border: 1px solid #cbd5e1; padding: 13px 24px; border-radius: 12px; font-weight: 700; font-size: 15px; }
-    .trust-row { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; font-weight: 600; color: #334155; }
+    /* Tab Pages */
+    .tab-page { display: none; max-width: 640px; margin: 0 auto; padding: 14px; }
+    .tab-page.active { display: block; }
 
-    /* Smart Match Box */
-    .smart-box { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 24px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06); }
-    .smart-box h3 { font-size: 18px; font-weight: 800; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
-    .smart-box p { font-size: 13px; color: #64748b; margin-bottom: 16px; }
-    .form-group { margin-bottom: 12px; }
-    .form-group label { display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 4px; }
-    .form-control { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 14px; background: #f8fafc; }
+    /* Cards & Accordions */
+    .white-box { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 14px 16px; margin-bottom: 12px; }
+    .bonus-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .bonus-left { display: flex; gap: 12px; align-items: center; }
+    .gift-icon { width: 40px; height: 40px; border-radius: 10px; background: #eef2ff; color: #5b46f6; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .btn-purple-full { display: block; width: 100%; background: #5b46f6; color: #fff; text-align: center; padding: 12px; border-radius: 12px; font-weight: 700; font-size: 14px; border: none; cursor: pointer; }
 
-    /* Main Container */
-    .container { max-width: 1140px; margin: 0 auto; padding: 40px 20px; }
-    .section-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
-    .section-head h2 { font-size: 24px; font-weight: 800; color: #0f172a; }
-    .section-head p { font-size: 14px; color: #64748b; }
+    .accordion-row { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 13px 16px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; font-size: 14px; color: #1f2937; }
+    .accordion-body { display: none; background: #ffffff; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 14px 14px; padding: 14px 16px; margin-top: -14px; margin-bottom: 12px; font-size: 13px; color: #4b5563; }
 
-    /* Filter Bar */
-    .filter-bar { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 16px; margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; }
-    .cat-pills { display: flex; gap: 8px; flex-wrap: wrap; }
-    .pill { background: #f8fafc; border: 1px solid #e2e8f0; color: #334155; padding: 7px 14px; border-radius: 99px; font-size: 13px; font-weight: 600; cursor: pointer; }
-    .pill.active { background: #4f46e5; color: #fff; border-color: #4f46e5; }
-    .search-input { padding: 8px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 14px; min-width: 240px; }
+    /* Search Input */
+    .search-wrap { position: relative; margin-bottom: 12px; }
+    .search-input { width: 100%; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 12px 16px; font-size: 14px; color: #111827; }
 
-    /* Channels Grid */
-    .channels-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 20px; }
-    .card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 20px; transition: 0.2s; display: flex; flex-direction: column; justify-content: space-between; }
-    .card:hover { border-color: #4f46e5; box-shadow: 0 10px 25px rgba(79, 70, 229, 0.08); }
-    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
-    .ch-meta { display: flex; gap: 12px; align-items: center; }
-    .avatar { width: 48px; height: 48px; border-radius: 14px; background: #1e1b4b; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; }
-    .verified { background: #dcfce7; color: #15803d; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 6px; display: inline-block; margin-bottom: 4px; }
-    .ch-title { font-size: 17px; font-weight: 800; color: #0f172a; }
-    .ch-user { font-size: 13px; color: #64748b; }
-    .country-tag { background: #f1f5f9; color: #334155; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 8px; }
+    /* Category Tabs + Monetize Card */
+    .browse-card-block { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 12px; margin-bottom: 12px; }
+    .cat-scroll { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 12px; border-bottom: 1px solid #f3f4f6; margin-bottom: 12px; }
+    .cat-scroll::-webkit-scrollbar { display: none; }
+    .cat-tab { background: #f8fafc; border: 1px solid #e5e7eb; color: #374151; padding: 8px 14px; border-radius: 10px; font-size: 13px; font-weight: 700; white-space: nowrap; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    .cat-tab span { color: #6b7280; font-weight: 600; font-size: 12px; }
+    .cat-tab.active { background: #eef2ff; border-color: #c7d2fe; color: #111827; }
 
-    .metrics-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; background: #f8fafc; border: 1px solid #f1f5f9; border-radius: 12px; padding: 12px; text-align: center; margin: 14px 0; }
-    .metric-val { font-size: 16px; font-weight: 800; color: #0f172a; }
-    .metric-lbl { font-size: 11px; color: #64748b; font-weight: 600; }
+    .monetize-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .monetize-row h4 { font-size: 14px; font-weight: 800; color: #111827; }
+    .monetize-row p { font-size: 12px; color: #6b7280; }
+    .btn-list-ch { background: #5b46f6; color: #fff; padding: 9px 14px; border-radius: 99px; font-size: 12px; font-weight: 700; white-space: nowrap; }
 
-    .card-bottom { border-top: 1px solid #f1f5f9; padding-top: 14px; display: flex; justify-content: space-between; align-items: center; }
-    .price { font-size: 20px; font-weight: 800; color: #0f172a; }
-    .price small { font-size: 12px; font-weight: 600; color: #64748b; }
-    .btn-add { background: #4f46e5; color: #fff; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 700; font-size: 13px; cursor: pointer; }
-    .btn-add.added { background: #16a34a; }
+    /* Dropdown Selectors */
+    .select-box { width: 100%; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 12px 16px; font-size: 14px; font-weight: 700; color: #1f2937; margin-bottom: 10px; appearance: auto; }
 
-    /* Monetize Banner */
-    .monetize-card { background: linear-gradient(135deg, #1e1b4b, #312e81); color: #fff; border-radius: 20px; padding: 32px; margin: 48px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-    .monetize-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
-    .monetize-card p { color: #c7d2fe; font-size: 15px; }
-    .btn-yellow { background: #facc15; color: #0f172a; padding: 12px 24px; border-radius: 12px; font-weight: 800; font-size: 14px; }
+    /* Channel Listing Cards */
+    .ch-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 18px; padding: 16px; margin-bottom: 12px; }
+    .ch-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+    .ch-left { display: flex; gap: 12px; align-items: center; }
+    .ch-avatar { width: 46px; height: 46px; border-radius: 50%; background: #1e1b4b; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; }
+    .verified-row { display: flex; gap: 6px; align-items: center; margin-bottom: 3px; }
+    .v-badge { background: #dcfce7; color: #15803d; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 99px; }
+    .n-badge { font-size: 11px; font-weight: 700; color: #4b5563; }
+    .ch-title { font-size: 16px; font-weight: 800; color: #111827; }
+    .ch-handle { font-size: 12px; color: #6b7280; }
+    .tag-row { display: flex; gap: 6px; margin-bottom: 10px; }
+    .gray-tag { background: #f3f4f6; color: #374151; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 8px; }
+    .stats-grid { background: #f8fafc; border-radius: 12px; padding: 10px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+    .st-val { font-size: 15px; font-weight: 800; color: #111827; }
+    .st-lbl { font-size: 11px; color: #6b7280; }
+    .price-text { font-size: 18px; font-weight: 800; margin-bottom: 10px; }
+    .price-text span { font-size: 13px; color: #6b7280; font-weight: 600; }
+    .btn-add-cart { width: 100%; background: #5b46f6; color: #fff; border: none; padding: 11px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer; margin-bottom: 8px; }
+    .btn-add-cart.added { background: #16a34a; }
+    .btn-details { width: 100%; background: #f8fafc; color: #374151; border: 1px solid #e5e7eb; padding: 9px; border-radius: 12px; font-weight: 600; font-size: 13px; cursor: pointer; }
 
-    /* Guides & Comparisons Grid (Like paychatads.com) */
-    .guides-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 20px; }
-    .guide-box { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; }
-    .guide-tag { font-size: 11px; font-weight: 800; color: #4f46e5; text-transform: uppercase; margin-bottom: 6px; }
-    .guide-box h4 { font-size: 16px; font-weight: 800; margin-bottom: 8px; color: #0f172a; }
-    .guide-box p { font-size: 13px; color: #475569; }
+    /* Guides Page & Official Links */
+    .guide-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+    .g-pill { background: #ffffff; border: 1px solid #e5e7eb; padding: 7px 14px; border-radius: 99px; font-size: 13px; font-weight: 700; color: #374151; }
+    .guide-item { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 16px; margin-bottom: 10px; }
+    .guide-item h4 { font-size: 15px; font-weight: 800; margin-bottom: 4px; color: #111827; }
+    .guide-item p { font-size: 13px; color: #6b7280; }
 
-    /* Cart Modal */
-    .modal-bg { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); z-index: 300; align-items: center; justify-content: center; padding: 16px; }
-    .modal-box { background: #fff; border-radius: 20px; max-width: 480px; width: 100%; padding: 24px; }
-    .modal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-    .close-btn { background: #f1f5f9; border: none; width: 32px; height: 32px; border-radius: 50%; font-weight: 800; cursor: pointer; }
+    .official-section { text-align: center; margin-top: 28px; padding-top: 20px; border-top: 1px solid #e5e7eb; }
+    .official-title { font-size: 14px; font-weight: 700; color: #6b7280; margin-bottom: 14px; }
+    .official-link { display: flex; align-items: center; justify-content: center; gap: 8px; color: #1f2937; font-weight: 700; font-size: 15px; padding: 10px 0; }
+    .official-link:hover { color: #5b46f6; }
 
-    /* Footer */
-    footer { background: #ffffff; border-top: 1px solid #e2e8f0; padding: 40px 20px; margin-top: 60px; }
-    .footer-grid { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px; }
-    .footer-col h5 { font-size: 14px; font-weight: 800; margin-bottom: 12px; color: #0f172a; }
-    .footer-col a { display: block; color: #64748b; font-size: 13px; margin-bottom: 8px; }
-    .footer-bottom { max-width: 1140px; margin: 28px auto 0; padding-top: 20px; border-top: 1px solid #f1f5f9; font-size: 12px; color: #94a3b8; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-
-    @media (max-width: 768px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .hero h1 { font-size: 28px; }
-    }
+    /* Bottom Navigation */
+    .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: #ffffff; border-top: 1px solid #e5e7eb; display: flex; justify-content: space-around; padding: 8px 0; z-index: 200; }
+    .nav-btn { background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 2px; color: #6b7280; font-size: 12px; font-weight: 600; cursor: pointer; padding: 5px 22px; border-radius: 12px; position: relative; }
+    .nav-btn.active { background: #eef2ff; color: #5b46f6; font-weight: 800; }
+    .badge-cnt { position: absolute; top: 2px; right: 14px; background: #5b46f6; color: #fff; font-size: 10px; padding: 1px 6px; border-radius: 99px; }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="#" class="logo"><div class="logo-badge">⚡</div> Ethio <span>PAYchat Ads</span></a>
-      <div class="nav-links">
-        <a href="#channels">ቻናሎች</a>
-        <a href="#guides">መመሪያዎች</a>
-        <a href="#monetize">ለቻናል ባለቤቶች</a>
-        <a href="#faq">ጥያቄና መልስ</a>
+  <!-- TOP BAR -->
+  <header>
+    <div class="brand"><div class="brand-icon">⚡</div> Ethio <span>PAYchat Ads</span></div>
+    <a href="https://t.me/PAYchat_aibot" class="btn-open-top">PAYchat ክፈት</a>
+  </header>
+
+  <!-- TAB 1: BROWSE -->
+  <div id="page-browse" class="tab-page active">
+    
+    <!-- Top $30 Offer Banner -->
+    <div class="white-box">
+      <div class="bonus-header">
+        <div class="bonus-left">
+          <div class="gift-icon">🎁</div>
+          <div>
+            <div style="font-size:11px; font-weight:700; color:#6b7280;">ለአዲስ አባላት</div>
+            <div style="font-size:15px; font-weight:800;">ለመጀመሪያ ማስታወቂያ $30 ያግኙ</div>
+          </div>
+        </div>
       </div>
-      <div class="nav-right">
-        <button class="btn-cart" onclick="openCart()">🛒 ቅርጫት <span class="cart-pill" id="cart-count">0</span></button>
-        <a href="https://t.me/PAYchat_Bot" class="btn-primary">PAYchat ክፈት</a>
+      <a href="https://t.me/PAYchat_aibot" class="btn-purple-full">ይመዝገቡ እና $30 ያግኙ</a>
+    </div>
+
+    <!-- Need Help Accordion -->
+    <div class="accordion-row" onclick="toggleAcc('help-acc')">
+      <span>❓ እገዛ ይፈልጋሉ? (Need help?)</span><span>⌄</span>
+    </div>
+    <div class="accordion-body" id="help-acc">
+      እዚህ ዌብሳይት ላይ የሚፈልጓቸውን ቻናሎች መርጠው ወደ ቅርጫት ያስገቡ፤ ከዚያም በPAYchat Mini App ውስጥ በUSDT Escrow ዋስትና ክፍያዎን ይፈጽሙ።
+    </div>
+
+    <!-- Smart Match Accordion -->
+    <div class="accordion-row" onclick="toggleAcc('smart-acc')">
+      <div>
+        <div>⚡ Smart Match — ቻናል አመልካች</div>
+        <div style="font-size:12px; font-weight:400; color:#6b7280;">ቻናሎችን ከታዳሚዎ እና ከበጀትዎ ጋር ያዛምዱ።</div>
+      </div>
+      <span>⌄</span>
+    </div>
+    <div class="accordion-body" id="smart-acc">
+      <label style="font-weight:700; display:block; margin-bottom:4px;">ከፍተኛ በጀት (በUSDT):</label>
+      <div style="display:flex; gap:8px;">
+        <input type="number" id="budget-input" placeholder="ለምሳሌ: 10" style="flex:1; padding:8px; border:1px solid #d1d5db; border-radius:8px;">
+        <button onclick="applyBudget()" style="background:#5b46f6; color:#fff; border:none; padding:8px 14px; border-radius:8px; font-weight:700;">ፈልግ</button>
       </div>
     </div>
+
+    <!-- Search Bar -->
+    <div class="search-wrap">
+      <input type="text" id="search-input" class="search-input" onkeyup="renderList()" placeholder="🔍 ቻናሎችን ይፈልጉ (Search channels)..." />
+    </div>
+
+    <!-- Category Tabs + Monetize Your Channel -->
+    <div class="browse-card-block">
+      <div class="cat-scroll">
+        <button class="cat-tab active" onclick="setCat('all', this)">ሁሉም <span>2397</span></button>
+        <button class="cat-tab" onclick="setCat('መዝናኛ', this)">መዝናኛ <span>645</span></button>
+        <button class="cat-tab" onclick="setCat('ዜና', this)">ዜና <span>468</span></button>
+        <button class="cat-tab" onclick="setCat('ክሪፕቶ', this)">ክሪፕቶ <span>322</span></button>
+        <button class="cat-tab" onclick="setCat('ቴክኖሎጂ', this)">ቴክኖሎጂ <span>311</span></button>
+        <button class="cat-tab" onclick="setCat('ንግድ', this)">ንግድ <span>220</span></button>
+        <button class="cat-tab" onclick="setCat('ትምህርት', this)">ትምህርት <span>197</span></button>
+        <button class="cat-tab" onclick="setCat('ላይፍ ስታይል', this)">ላይፍ ስታይል <span>69</span></button>
+        <button class="cat-tab" onclick="setCat('ሌሎች', this)">ሌሎች <span>145</span></button>
+      </div>
+      <div class="monetize-row">
+        <div>
+          <h4>ቻናልዎን ወደ ገቢ ይቀይሩ</h4>
+          <p>ማስታወቂያዎችን ያስተዳድሩ እና በቀጥታ USDT ያግኙ።</p>
+        </div>
+        <a href="https://t.me/PAYchat_aibot" class="btn-list-ch">ቻናልዎን ያስመዝግቡ →</a>
+      </div>
+    </div>
+
+    <!-- 3 Filter Dropdowns -->
+    <select id="country-filter" class="select-box" onchange="renderList()">
+      <option value="all">🌍 ሁሉም ሀገራት (All countries)</option>
+      <option value="ET">🇪🇹 ኢትዮጵያ (Ethiopia)</option>
+      <option value="GLOBAL">🌐 ዓለም አቀፍ (Global)</option>
+    </select>
+
+    <select class="select-box" onchange="renderList()">
+      <option value="all">ሁሉም ቻናሎች (All channels)</option>
+      <option value="verified">✔ የተረጋገጡ ብቻ (Verified)</option>
+    </select>
+
+    <select id="sort-filter" class="select-box" onchange="renderList()">
+      <option value="rec">የሚመከሩ (Recommended)</option>
+      <option value="low">ዝቅተኛ ዋጋ (Best value)</option>
+      <option value="views">ከፍተኛ እይታ (Most views)</option>
+    </select>
+
+    <h3 style="font-size:18px; font-weight:800; margin:14px 0 10px;">ቻናሎች <span style="color:#6b7280; font-size:14px;" id="ch-count-label"></span></h3>
+    <div id="channels-list"></div>
+  </div>
+
+  <!-- TAB 2: CART -->
+  <div id="page-cart" class="tab-page">
+    <h2 style="font-size:24px; font-weight:800; margin-bottom:14px;">የእርስዎ ቅርጫት (Your cart)</h2>
+    <div class="white-box">
+      <div class="bonus-header">
+        <div class="bonus-left">
+          <div class="gift-icon">🎁</div>
+          <div>
+            <div style="font-size:11px; font-weight:700; color:#6b7280;">ለአዲስ አባላት</div>
+            <div style="font-size:16px; font-weight:800;">ለማስታወቂያ $30 ያግኙ</div>
+            <div style="font-size:12px; color:#6b7280;">🕒 የመውሰጃ ጊዜ: 1 ቀን 4 ሰዓት</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://t.me/PAYchat_aibot" class="btn-purple-full">ይመዝገቡ እና $30 ያግኙ</a>
+    </div>
+    <p style="font-size:13px; color:#4b5563; margin-bottom:14px;">የመረጧቸውን ቻናሎች ይገምግሙና ማስታወቂያዎን ለመፍጠር እና ለመክፈል ወደ PAYchat ይቀጥሉ።</p>
+    <div id="cart-container"></div>
+  </div>
+
+  <!-- TAB 3: GUIDES -->
+  <div id="page-guides" class="tab-page">
+    <div class="guide-pills">
+      <span class="g-pill">እቅድ እና ልኬት</span>
+      <span class="g-pill">ዋጋዎች</span>
+      <span class="g-pill">ሀገራት</span>
+      <span class="g-pill">ለቻናል ባለቤቶች</span>
+      <span class="g-pill">እገዛ</span>
+    </div>
+
+    <h2 style="font-size:20px; font-weight:800; margin-bottom:4px;">አጀማመር (Getting started)</h2>
+    <p style="font-size:13px; color:#6b7280; margin-bottom:14px;">የቻናል ማስታወቂያ እንዴት እንደሚሰራ እና ከየት መጀመር እንዳለብዎ ይወቁ።</p>
+
+    <div class="guide-item">
+      <h4>በPAYchat ላይ ማስታወቂያ እንዴት መፍጠር ይቻላል?</h4>
+      <p>ቻናሎችን እዚህ ይምረጡ፤ ከዚያም በPAYchat Mini App ውስጥ ማስታወቂያዎን ይፍጠሩና ይክፈሉ።</p>
+    </div>
+    <div class="guide-item">
+      <h4>የቴሌግራም ማስታወቂያ ማብራሪያ</h4>
+      <p>የቻናል ፖስቶች (Channel posts) እና Sponsored Messages ያላቸው ልዩነት።</p>
+    </div>
+    <div class="guide-item">
+      <h4>የቴሌግራም ቻናሎችን በዘርፍ ይፈልጉ</h4>
+      <p>ምድቦችን (መዝናኛ፣ ዜና፣ ክሪፕቶ፣ ቴክኖሎጂ፣ ላይፍ ስታይል) ያስሱ እና ዋጋዎችን ያወዳድሩ።</p>
+    </div>
+
+    <!-- Official Support & Social Channels -->
+    <div class="official-section">
+      <div class="official-title">የማስታወቂያ እገዛ (Advertising assistance)</div>
+      <a href="https://t.me/PAYchat_aibot" style="display:block; color:#5b46f6; font-weight:800; font-size:14px; margin-bottom:8px;">በቴሌግራም የማስታወቂያ ባለሙያ ያግኙ</a>
+      <a href="https://t.me/paychat_group" style="display:block; color:#5b46f6; font-weight:800; font-size:14px; margin-bottom:22px;">ድጋፍ እና እገዛ (Contact & support)</a>
+
+      <div class="official-title">ኦፊሴላዊ የድጋፍ እና የሶሻል ቻናሎች</div>
+      <a href="https://t.me/PAYchat_aibot" class="official-link">✈️ Mini App (@PAYchat_aibot) ↗</a>
+      <a href="https://t.me/paychat_group" class="official-link">💬 ማህበረሰብ (Community) ↗</a>
+      <a href="https://t.me/PAYchat_Info" class="official-link">📢 ማስታወቂያዎች (Announcements) ↗</a>
+      <a href="https://t.me/addlist/mBUiRQAM7cZhZjFl" class="official-link">📁 የቻናሎች አቃፊ (Channel folder) ↗</a>
+      <a href="https://x.com/paychat_aibot" class="official-link">𝕏 X / Twitter ↗</a>
+      <a href="https://youtube.com/@PAYchat_aibot" class="official-link">▶️ YouTube ↗</a>
+      <a href="https://www.instagram.com/paychatai" class="official-link">📸 Instagram ↗</a>
+      <a href="https://www.facebook.com/share/1TwRnhRWws" class="official-link">👥 Facebook ↗</a>
+
+      <p style="font-size:12px; color:#6b7280; margin-top:16px;">P2P disputes ለP2P ግብይቶች ብቻ የሚያገለግል ነው።</p>
+      <p style="font-size:12px; color:#9ca3af; margin-top:12px;">© 2026 Ethio PAYchat Ads (ethiopaychatads.com). ቻናሎችን እዚህ ይምረጡ፤ ክፍያውን በPAYchat Mini App ይፈጽሙ።</p>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAVIGATION -->
+  <nav class="bottom-nav">
+    <button class="nav-btn active" onclick="goTab('browse', this)">
+      <span>🏠</span><span>Browse</span>
+    </button>
+    <button class="nav-btn" onclick="goTab('cart', this)">
+      <span class="badge-cnt" id="cart-badge">0</span>
+      <span>🛒</span><span>Cart</span>
+    </button>
+    <button class="nav-btn" onclick="goTab('guides', this)">
+      <span>📖</span><span>Guides</span>
+    </button>
   </nav>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div>
-        <div class="eyebrow">⚡ በኢትዮጵያ ቁጥር 1 የቴሌግራም ማስታወቂያ መድረክ</div>
-        <h1>በታዋቂ የቴሌግራም ቻናሎች ላይ ማስታወቂያ ይግዙ</h1>
-        <p>የቻናሎችን ትክክለኛ እይታ እና ዋጋ ያወዳድሩ። የሚፈልጓቸውን ቻናሎች እዚህ ይምረጡና በPAYchat ውስጥ በUSDT Escrow ዋስትና ይክፈሉ።</p>
-        <div class="hero-cta-row">
-          <a href="#channels" class="btn-lg">ቻናሎችን ይመልከቱ</a>
-          <a href="https://t.me/PAYchat_Bot" class="btn-outline">🎁 የ$30 ቦነስ ይውሰዱ</a>
-        </div>
-        <div class="trust-row">
-          <span>✅ 0% ተጨማሪ ክፍያ</span>
-          <span>🛡️ 100% Escrow ዋስትና</span>
-          <span>⏱️ የ24-ሰዓት ፈጣን ፖስት</span>
-        </div>
-      </div>
-
-      <!-- SMART MATCH WIDGET -->
-      <div class="smart-box">
-        <h3>🎯 Smart Match — ቻናል አመልካች</h3>
-        <p>በጀትዎን እና ዘርፍዎን ይምረጡ፤ ትክክለኛውን ቻናል ወዲያውኑ እናሳይዎታለን።</p>
-        <div class="form-group">
-          <label>የሚፈልጉት ዘርፍ</label>
-          <select id="sm-cat" class="form-control">
-            <option value="all">ሁሉም ዘርፎች</option>
-            <option value="ቴክኖሎጂ">ቴክኖሎጂ</option>
-            <option value="ንግድ">ንግድ እና ክሪፕቶ</option>
-            <option value="ዜና">ዜና እና መረጃ</option>
-            <option value="ስፖርት">ስፖርት</option>
-            <option value="መዝናኛ">መዝናኛ</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>ከፍተኛ በጀት (በUSDT)</label>
-          <input type="number" id="sm-budget" class="form-control" placeholder="ለምሳሌ: 10" value="15" />
-        </div>
-        <button class="btn-primary" style="width:100%; padding:12px; border:none; cursor:pointer; font-size:14px;" onclick="runSmartMatch()">ተስማሚ ቻናሎችን ፈልግ →</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- CHANNELS MARKETPLACE -->
-  <div class="container" id="channels">
-    <div class="section-head">
-      <div>
-        <h2>የቴሌግራም ቻናሎች ዝርዝር (2,396+)</h2>
-        <p>ሁሉም ቻናሎች የተረጋገጡ እና ትክክለኛ የእይታ መረጃ ያላቸው ናቸው።</p>
-      </div>
-    </div>
-
-    <div class="filter-bar">
-      <div class="cat-pills">
-        <button class="pill active" onclick="setCat('all', this)">ሁሉም</button>
-        <button class="pill" onclick="setCat('ቴክኖሎጂ', this)">ቴክኖሎጂ</button>
-        <button class="pill" onclick="setCat('ንግድ', this)">ንግድ እና ክሪፕቶ</button>
-        <button class="pill" onclick="setCat('ዜና', this)">ዜና</button>
-        <button class="pill" onclick="setCat('ስፖርት', this)">ስፖርት</button>
-        <button class="pill" onclick="setCat('መዝናኛ', this)">መዝናኛ</button>
-      </div>
-      <input type="text" id="searchBox" class="search-input" onkeyup="render()" placeholder="🔍 በቻናል ስም ይፈልጉ..." />
-    </div>
-
-    <div class="channels-grid" id="grid"></div>
-
-    <!-- MONETIZE BANNER -->
-    <div class="monetize-card" id="monetize">
-      <div>
-        <h3>የቴሌግራም ቻናል አለዎት? ገቢዎን ያሳድጉ!</h3>
-        <p>ቻናልዎን በነጻ ያስመዝግቡ፣ የማስታወቂያ ዋጋዎን እራስዎ ይወስኑ እና ክፍያዎን በቀጥታ በUSDT ይቀበሉ።</p>
-      </div>
-      <a href="https://t.me/PAYchat_Bot" class="btn-yellow">ቻናልዎን ያስመዝግቡ →</a>
-    </div>
-
-    <!-- GUIDES & COMPARISONS (SEO CONTENT) -->
-    <div id="guides" style="margin-top: 40px;">
-      <div class="section-head">
-        <div>
-          <h2>የማስታወቂያ መመሪያዎች እና ንጽጽሮች</h2>
-          <p>በቴሌግራም ማስታወቂያ እንዴት ከፍተኛ ውጤት ማግኘት እንደሚችሉ ይወቁ።</p>
-        </div>
-      </div>
-      <div class="guides-grid">
-        <div class="guide-box">
-          <div class="guide-tag">መመሪያ 1</div>
-          <h4>ማስታወቂያ እንዴት መፍጠር ይቻላል?</h4>
-          <p>እዚህ ዌብሳይት ላይ የሚፈልጓቸውን ቻናሎች ይምረጡና ወደ ቅርጫት ያስገቡ፤ ከዚያም በPAYchat Mini App ውስጥ ጽሁፍዎን ጭነው ይክፈሉ።</p>
-        </div>
-        <div class="guide-box">
-          <div class="guide-tag">ንጽጽር</div>
-          <h4>የቻናል ፖስት vs Telegram Official Ads</h4>
-          <p>የቻናል ፖስት በቋሚ ዋጋ (ከ1 USDT ጀምሮ) ለ24 ሰዓት በቻናሉ ውስጥ ስለሚቆይ ከፍተኛ እምነት እና ቀጥተኛ ደንበኞችን ያስገኛል።</p>
-        </div>
-        <div class="guide-box" id="faq">
-          <div class="guide-tag">ዋስትና</div>
-          <h4>0% ተጨማሪ ክፍያ እና Escrow ጥበቃ</h4>
-          <p>የቻናል ባለቤቶች ባስቀመጡት ቀጥተኛ ዋጋ ይገዛሉ። ማስታወቂያው ካልተለቀቀ ገንዘብዎ 100% ተመላሽ ይሆናል።</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CART MODAL -->
-  <div class="modal-bg" id="cartModal">
-    <div class="modal-box">
-      <div class="modal-head">
-        <h3 style="font-size:18px; font-weight:800;">🛒 የእርስዎ ቅርጫት</h3>
-        <button class="close-btn" onclick="closeCart()">✕</button>
-      </div>
-      <div id="modalContent"></div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h5>Ethio PAYchat Ads</h5>
-        <p style="font-size:13px; color:#64748b;">በኢትዮጵያ የቴሌግራም ቻናል ማስታወቂያዎችን በቀላሉ መምረጫ እና ማወዳደሪያ መድረክ።</p>
-      </div>
-      <div class="footer-col">
-        <h5>መድረኩን ያስሱ</h5>
-        <a href="#channels">ቻናሎችን ይፈልጉ</a>
-        <a href="#guides">የማስታወቂያ መመሪያ</a>
-        <a href="#monetize">ለቻናል ባለቤቶች</a>
-      </div>
-      <div class="footer-col">
-        <h5>ኦፊሴላዊ PAYchat ሊንኮች</h5>
-        <a href="https://t.me/PAYchat_Bot">PAYchat Mini App</a>
-        <a href="https://t.me/PAYchat_Community">ማህበረሰብ (Community)</a>
-        <a href="https://t.me/PAYchat_News">ማስታወቂያዎች (Announcements)</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Ethio PAYchat Ads (ethiopaychatads.com). All rights reserved.</span>
-      <span>ቻናሎችን እዚህ ይምረጡ፤ ክፍያውን በPAYchat Mini App ይፈጽሙ።</span>
-    </div>
-  </footer>
-
   <script>
-    const data = [
-      { id: 1, name: "Ethio Tech & Digital", user: "@EthioTechNews", cat: "ቴክኖሎጂ", subs: "85.4K", views: "22.1K", err: "26%", price: 5.00 },
-      { id: 2, name: "Addis Business Market", user: "@AddisBizMarket", cat: "ንግድ", subs: "120.0K", views: "34.5K", err: "29%", price: 8.00 },
-      { id: 3, name: "Ethiopia Daily News", user: "@EthioDailyNews", cat: "ዜና", subs: "240.0K", views: "65.0K", err: "27%", price: 15.00 },
-      { id: 4, name: "GoalX Ethio Football", user: "@GoalXFootball", cat: "ስፖርት", subs: "95.2K", views: "28.4K", err: "30%", price: 7.00 },
-      { id: 5, name: "Habesha Comedy & Fun", user: "@HabeshaComedy", cat: "መዝናኛ", subs: "150.8K", views: "45.2K", err: "30%", price: 10.00 },
-      { id: 6, name: "Crypto & Forex Ethiopia", user: "@EthioCryptoHub", cat: "ንግድ", subs: "42.3K", views: "11.8K", err: "28%", price: 4.00 }
+    const channels = [
+      { id: 1, name: "Habesha Lifestyle & Dance", handle: "@HabeshaLifestyle", cat: "ላይፍ ስታይል", country: "ET", viewsList: 94, subs: "110.2K", avg: "31.4K", err: "28%", price: 6.00 },
+      { id: 2, name: "Ethio Tech & Digital", handle: "@EthioTechNews", cat: "ቴክኖሎጂ", country: "ET", viewsList: 88, subs: "85.4K", avg: "22.1K", err: "26%", price: 5.00 },
+      { id: 3, name: "Addis Business Market", handle: "@AddisBizMarket", cat: "ንግድ", country: "ET", viewsList: 75, subs: "120.0K", avg: "34.5K", err: "29%", price: 8.00 },
+      { id: 4, name: "Ethiopia Daily News", handle: "@EthioDailyNews", cat: "ዜና", country: "ET", viewsList: 112, subs: "240.0K", avg: "65.0K", err: "27%", price: 15.00 },
+      { id: 5, name: "Ethio Crypto & Trading", handle: "@EthioCryptoHub", cat: "ክሪፕቶ", country: "ET", viewsList: 81, subs: "53.7K", avg: "10.3K", err: "19%", price: 12.00 },
+      { id: 6, name: "Habesha Comedy & Fun", handle: "@HabeshaComedy", cat: "መዝናኛ", country: "ET", viewsList: 93, subs: "150.8K", avg: "45.2K", err: "30%", price: 10.00 },
+      { id: 7, name: "Ethio Online Education", handle: "@EthioEduHub", cat: "ትምህርት", country: "ET", viewsList: 62, subs: "68.0K", avg: "18.5K", err: "27%", price: 4.00 }
     ];
 
-    let currentCat = 'all';
-    let maxPrice = 9999;
+    let curCat = 'all';
+    let maxBudget = 99999;
     let cart = [];
 
-    function render() {
-      const q = document.getElementById('searchBox').value.toLowerCase();
-      const grid = document.getElementById('grid');
-      grid.innerHTML = '';
+    function renderList() {
+      const q = document.getElementById('search-input').value.toLowerCase();
+      const country = document.getElementById('country-filter').value;
+      const sort = document.getElementById('sort-filter').value;
+      const box = document.getElementById('channels-list');
+      box.innerHTML = '';
 
-      const filtered = data.filter(c => {
-        const okCat = currentCat === 'all' || c.cat === currentCat;
-        const okPrice = c.price <= maxPrice;
-        const okQuery = c.name.toLowerCase().includes(q) || c.cat.includes(q);
-        return okCat && okPrice && okQuery;
+      let list = channels.filter(c => {
+        const mCat = curCat === 'all' || c.cat === curCat;
+        const mCountry = country === 'all' || c.country === country;
+        const mBudget = c.price <= maxBudget;
+        const mQuery = c.name.toLowerCase().includes(q) || c.cat.includes(q) || c.handle.toLowerCase().includes(q);
+        return mCat && mCountry && mBudget && mQuery;
       });
 
-      filtered.forEach(c => {
-        const inCart = cart.some(x => x.id === c.id);
-        grid.innerHTML += `
-          <div class="card">
-            <div>
-              <div class="card-header">
-                <div class="ch-meta">
-                  <div class="avatar">${c.name.substring(0,2)}</div>
-                  <div>
-                    <span class="verified">✔ የተረጋገጠ</span>
-                    <div class="ch-title">${c.name}</div>
-                    <div class="ch-user">${c.user}</div>
+      if (sort === 'low') list.sort((a, b) => a.price - b.price);
+      document.getElementById('ch-count-label').innerText = `(${list.length})`;
+
+      list.forEach(c => {
+        const added = cart.some(x => x.id === c.id);
+        box.innerHTML += `
+          <div class="ch-card">
+            <div class="ch-top">
+              <div class="ch-left">
+                <div class="ch-avatar">${c.name.substring(0,2)}</div>
+                <div>
+                  <div class="verified-row">
+                    <span class="v-badge">✔ Verified</span>
+                    <span class="n-badge">☆ New</span>
                   </div>
+                  <div class="ch-title">${c.name}</div>
+                  <div class="ch-handle">${c.handle}</div>
                 </div>
-                <span class="country-tag">🇪🇹 ${c.cat}</span>
-              </div>
-              <div class="metrics-row">
-                <div><div class="metric-val">${c.subs}</div><div class="metric-lbl">ተከታዮች</div></div>
-                <div><div class="metric-val">${c.views}</div><div class="metric-lbl">አማካይ እይታ</div></div>
-                <div><div class="metric-val">${c.err}</div><div class="metric-lbl">ተደራሽነት</div></div>
               </div>
             </div>
-            <div class="card-bottom">
-              <div class="price">${c.price.toFixed(2)} <small>USDT</small></div>
-              <button class="btn-add ${inCart ? 'added' : ''}" onclick="toggleCart(${c.id})">
-                ${inCart ? '✓ ተመርጧል' : '+ ወደ ቅርጫት'}
-              </button>
+            <div class="tag-row">
+              <span class="gray-tag">${c.cat}</span>
+              <span class="gray-tag">🇪🇹 ኢትዮጵያ</span>
             </div>
+            <div style="font-size:12px; color:#6b7280; margin-bottom:10px;">👁 ${c.viewsList} Listing views</div>
+            <div class="stats-grid">
+              <div><div class="st-val">${c.subs}</div><div class="st-lbl">Subscribers</div></div>
+              <div><div class="st-val">${c.avg}</div><div class="st-lbl">Avg. views</div></div>
+              <div><div class="st-val">${c.err}</div><div class="st-lbl">Reach / ERR</div></div>
+            </div>
+            <div class="price-text">${c.price.toFixed(2)} <span>USDT</span></div>
+            <button class="btn-add-cart ${added ? 'added' : ''}" onclick="toggleCart(${c.id})">
+              ${added ? '✓ ቅርጫት ውስጥ ገብቷል' : '🛒 ወደ ቅርጫት ጨምር (Add to cart)'}
+            </button>
+            <button class="btn-details" onclick="alert('${c.name}\\nተከታዮች: ${c.subs}\\nአማካይ እይታ: ${c.avg}\\nዋጋ: ${c.price.toFixed(2)} USDT')">📊 ዝርዝር መረጃ (Analytics & details)</button>
           </div>
         `;
       });
     }
 
-    function setCat(cat, btn) {
-      currentCat = cat;
-      maxPrice = 9999;
-      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      render();
-    }
-
-    function runSmartMatch() {
-      currentCat = document.getElementById('sm-cat').value;
-      maxPrice = parseFloat(document.getElementById('sm-budget').value) || 9999;
-      render();
-      document.getElementById('channels').scrollIntoView({ behavior: 'smooth' });
+    function renderCart() {
+      const box = document.getElementById('cart-container');
+      if (cart.length === 0) {
+        box.innerHTML = `
+          <div class="white-box" style="text-align:center; padding:32px 16px;">
+            <div style="font-size:34px; margin-bottom:8px;">🛒</div>
+            <h3 style="font-size:18px; font-weight:800; margin-bottom:6px;">ቅርጫትዎ ባዶ ነው</h3>
+            <p style="font-size:13px; color:#6b7280; margin-bottom:16px;">ማስታወቂያ ለመጀመር አንድ ወይም ከዚያ በላይ የቴሌግራም ቻናሎችን ይምረጡ።</p>
+            <button class="btn-purple-full" style="max-width:220px; margin:0 auto;" onclick="goTab('browse', document.querySelectorAll('.nav-btn')[0])">ቻናሎችን ይመልከቱ</button>
+          </div>
+        `;
+        return;
+      }
+      const total = cart.reduce((s, x) => s + x.price, 0);
+      let html = cart.map(i => `
+        <div class="white-box" style="display:flex; justify-content:space-between; align-items:center;">
+          <div><strong>${i.name}</strong><div style="font-size:12px; color:#6b7280;">${i.price.toFixed(2)} USDT</div></div>
+          <button onclick="toggleCart(${i.id})" style="background:#fee2e2; color:#b91c1c; border:none; padding:6px 12px; border-radius:8px; font-weight:700; cursor:pointer;">አጥፋ</button>
+        </div>
+      `).join('');
+      html += `
+        <div class="white-box">
+          <div style="display:flex; justify-content:space-between; font-weight:800; font-size:16px; margin-bottom:12px;">
+            <span>ጠቅላላ ክፍያ:</span><span>${total.toFixed(2)} USDT</span>
+          </div>
+          <a href="https://t.me/PAYchat_aibot" class="btn-purple-full" style="background:#16a34a;">PAYchat ላይ ይክፈሉ (${total.toFixed(2)} USDT) →</a>
+        </div>
+      `;
+      box.innerHTML = html;
     }
 
     function toggleCart(id) {
-      const item = data.find(x => x.id === id);
+      const item = channels.find(x => x.id === id);
       const idx = cart.findIndex(x => x.id === id);
       if (idx > -1) cart.splice(idx, 1);
       else cart.push(item);
-      document.getElementById('cart-count').innerText = cart.length;
-      render();
+      document.getElementById('cart-badge').innerText = cart.length;
+      renderList();
+      renderCart();
     }
 
-    function openCart() {
-      const box = document.getElementById('modalContent');
-      if (cart.length === 0) {
-        box.innerHTML = `<p style="color:#64748b; text-align:center; padding:20px 0;">ቅርጫትዎ ባዶ ነው። እባክዎ መጀመሪያ ቻናል ይምረጡ።</p>`;
-      } else {
-        const total = cart.reduce((s, x) => s + x.price, 0);
-        let list = cart.map(i => `<div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid #f1f5f9;"><span>${i.name}</span><strong>${i.price.toFixed(2)} USDT</strong></div>`).join('');
-        box.innerHTML = `
-          ${list}
-          <div style="display:flex; justify-content:space-between; font-size:17px; font-weight:800; margin:16px 0;">
-            <span>ጠቅላላ ክፍያ:</span><span>${total.toFixed(2)} USDT</span>
-          </div>
-          <a href="https://t.me/PAYchat_Bot" class="btn-primary" style="display:block; text-align:center; padding:12px; background:#16a34a;">PAYchat ላይ ይክፈሉ (${total.toFixed(2)} USDT) →</a>
-        `;
-      }
-      document.getElementById('cartModal').style.display = 'flex';
+    function setCat(cat, btn) {
+      curCat = cat;
+      maxBudget = 99999;
+      document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderList();
     }
 
-    function closeCart() { document.getElementById('cartModal').style.display = 'none'; }
+    function applyBudget() {
+      maxBudget = parseFloat(document.getElementById('budget-input').value) || 99999;
+      renderList();
+    }
 
-    render();
+    function toggleAcc(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function goTab(name, btn) {
+      document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-' + name).classList.add('active');
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (name === 'cart') renderCart();
+    }
+
+    renderList();
   </script>
 </body>
 </html>
