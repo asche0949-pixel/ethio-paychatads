@@ -1,0 +1,23 @@
+name: Sync PAYchat Channels
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch Ethiopian Channels
+        run: |
+          curl -s -H "X-API-Key: ${{ secrets.PAYCHAT_API_KEY }}" \
+          "https://paychat.info/api/partner/shop/channels?country=ET&limit=100&offset=0" \
+          -o channels.json
+      - name: Commit channels.json
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add channels.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update channels" && git push)
