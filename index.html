@@ -32,7 +32,7 @@
     .cat-scroll { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 12px; border-bottom: 1px solid #f3f4f6; margin-bottom: 12px; }
     .cat-scroll::-webkit-scrollbar { display: none; }
     .cat-tab { background: #f8fafc; border: 1px solid #e5e7eb; color: #374151; padding: 8px 14px; border-radius: 10px; font-size: 13px; font-weight: 700; white-space: nowrap; cursor: pointer; display: flex; align-items: center; gap: 6px; }
-    .cat-tab.active { background: #eef2ff; border-color: #c7d2fe; color: #111827; }
+    .cat-tab.active { background: #5b46f6; border-color: #5b46f6; color: #ffffff; }
     .monetize-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
     .monetize-row h4 { font-size: 14px; font-weight: 800; color: #111827; }
     .monetize-row p { font-size: 12px; color: #6b7280; }
@@ -131,15 +131,8 @@
     </div>
 
     <div class="browse-card-block">
-      <div class="cat-scroll">
-        <button class="cat-tab active" onclick="setCat('all', this)">ሁሉም</button>
-        <button class="cat-tab" onclick="setCat('መዝናኛ', this)">መዝናኛ</button>
-        <button class="cat-tab" onclick="setCat('ዜና', this)">ዜና</button>
-        <button class="cat-tab" onclick="setCat('ስፖርት', this)">⚽ ስፖርት</button>
-        <button class="cat-tab" onclick="setCat('ክሪፕቶ', this)">ክሪፕቶ</button>
-        <button class="cat-tab" onclick="setCat('ቴክኖሎጂ', this)">ቴክኖሎጂ</button>
-        <button class="cat-tab" onclick="setCat('ንግድ', this)">ንግድ</button>
-        <button class="cat-tab" onclick="setCat('ትምህርት', this)">ትምህርት</button>
+      <div class="cat-scroll" id="cat-buttons">
+        <button class="cat-tab active" onclick="setCat('all', this)">ሁሉም (All)</button>
       </div>
       <div class="monetize-row">
         <div>
@@ -226,6 +219,33 @@
     let maxBudget = 99999;
     let cart = [];
 
+    const catAmharicMap = {
+      'entertainment': 'መዝናኛ',
+      'humor': 'ቀልድና ሳቅ',
+      'comedy': 'ቀልድና ሳቅ',
+      'memes': 'ቀልድና ሳቅ',
+      'news': 'ዜና',
+      'crypto': 'ክሪፕቶ',
+      'cryptocurrency': 'ክሪፕቶ',
+      'finance': 'ፋይናንስና ንግድ',
+      'business': 'ንግድ',
+      'sport': '⚽ ስፖርት',
+      'sports': '⚽ ስፖርት',
+      'football': '⚽ ስፖርት',
+      'tech': 'ቴክኖሎጂ',
+      'technology': 'ቴክኖሎጂ',
+      'education': 'ትምህርት',
+      'music': 'ሙዚቃ',
+      'movies': 'ፊልም',
+      'lifestyle': 'አኗኗር'
+    };
+
+    function getCatLabel(rawCat) {
+      if (!rawCat) return 'አጠቃላይ';
+      const key = String(rawCat).trim().toLowerCase();
+      return catAmharicMap[key] || rawCat;
+    }
+
     function formatNum(n) {
       if (!n) return "0";
       if (n >= 1000000) return (n / 1000000).toFixed(1) + "M";
@@ -240,24 +260,42 @@
       return vals.length > 0 ? Math.min(...vals) : 0;
     }
 
+    function buildCategoryTabs() {
+      const container = document.getElementById('cat-buttons');
+      const uniqueCats = [...new Set(channels.map(c => c.rawCat).filter(Boolean))];
+      let html = `<button class="cat-tab active" onclick="setCat('all', this)">ሁሉም (${channels.length})</button>`;
+      uniqueCats.forEach(rc => {
+        const count = channels.filter(c => c.rawCat === rc).length;
+        const label = getCatLabel(rc);
+        html += `<button class="cat-tab" onclick="setCat('${rc.replace(/'/g, "\\'")}', this)">${label} (${count})</button>`;
+      });
+      container.innerHTML = html;
+    }
+
     async function loadChannels() {
       const statusEl = document.getElementById('api-status');
       try {
         const res = await fetch('./channels.json?v=' + Date.now());
-        if (!res.ok) throw new Error("channels.json ገና አልተፈጠረም");
-        const json = await res.json();
+        const text = await res.text();
+        const jsonStart = text.indexOf('{') !== -1 && (text.indexOf('[') === -1 || text.indexOf('{') < text.indexOf('['))
+          ? text.indexOf('{')
+          : text.indexOf('[');
+        if (jsonStart === -1) throw new Error("No JSON");
+        const json = JSON.parse(text.slice(jsonStart));
         const rawList = json.channels || json.data || json.items || (Array.isArray(json) ? json : []);
 
         channels = rawList.map((c, idx) => {
           const members = Number(c.members || c.subscribers || 0);
           const avgViews = Number(c.avg_views || 0);
           const err = members > 0 ? Math.round((avgViews / members) * 100) + "%" : "—";
+          const rawCat = String(c.category || c.cat || 'General').trim();
           return {
             id: c.id || c.channel_id || idx + 1,
             name: c.title || c.name || "Unnamed Channel",
             handle: c.username ? (c.username.startsWith("@") ? c.username : "@" + c.username) : "",
             lang: c.language || c.lang || "am",
-            cat: c.category || "መዝናኛ",
+            rawCat: rawCat,
+            catLabel: getCatLabel(rawCat),
             photo: c.photo_url || "",
             subs: formatNum(members),
             avg: formatNum(avgViews),
@@ -269,10 +307,11 @@
           };
         });
 
-        statusEl.innerHTML = `✅ ${channels.length} የኢትዮጵያ ቻናሎች ከPAYchat ተጭነዋል።`;
+        buildCategoryTabs();
+        statusEl.innerHTML = `✅ ${channels.length} የኢትዮጵያ ቻናሎች ተጭነዋል።`;
         renderList();
       } catch (err) {
-        statusEl.innerHTML = `⏳ ቻናሎች እየተዘጋጁ ነው (GitHub Actions ላይ Run workflow ይንኩ)...`;
+        statusEl.innerHTML = `⏳ ቻናሎችን በመጫን ላይ...`;
       }
     }
 
@@ -285,15 +324,20 @@
 
       let list = channels.filter(c => {
         const mLang = langFilter === 'ET_ALL' || (c.lang && c.lang.toLowerCase().includes('am'));
-        const mCat = curCat === 'all' || (c.cat && c.cat.toLowerCase().includes(curCat.toLowerCase()));
+        const mCat = curCat === 'all' || c.rawCat.toLowerCase() === curCat.toLowerCase();
         const mBudget = c.price <= maxBudget;
-        const mQuery = c.name.toLowerCase().includes(q) || c.handle.toLowerCase().includes(q);
+        const mQuery = c.name.toLowerCase().includes(q) || c.handle.toLowerCase().includes(q) || c.catLabel.toLowerCase().includes(q);
         return mLang && mCat && mBudget && mQuery;
       });
 
       if (sort === 'low') list.sort((a, b) => a.price - b.price);
       if (sort === 'views') list.sort((a, b) => b.avgRaw - a.avgRaw);
       document.getElementById('ch-count-label').innerText = `(${list.length})`;
+
+      if (list.length === 0) {
+        box.innerHTML = `<div class="white-box" style="text-align:center; color:#6b7280;">በዚህ ምርጫ ውስጥ ቻናል አልተገኘም።</div>`;
+        return;
+      }
 
       list.forEach(c => {
         const added = cart.some(x => x.id === c.id);
@@ -311,7 +355,7 @@
               </div>
             </div>
             <div class="tag-row">
-              <span class="gray-tag">${c.cat}</span>
+              <span class="gray-tag">${c.catLabel}</span>
               <span class="gray-tag">🇪🇹 ኢትዮጵያ</span>
             </div>
             <div class="stats-grid">
