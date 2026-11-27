@@ -108,7 +108,7 @@
       <span>❓ እገዛ ይፈልጋሉ? (እንዴት ይሰራል?)</span><span>⌄</span>
     </div>
     <div class="accordion-body" id="help-acc">
-      የሚፈልጓቸውን የኢትዮጵያ ቻናሎች መርጠው «Add to cart» ያድርጉ፤ ከዚያም Cart ውስጥ ገብተው «Create Ad in PAYchat →» ሲነኩ PAYchat Mini App-ኡን በቀጥታ ከፍቶ ማስታወቂያዎን ያስጽፍዎታል።
+      የሚፈልጓቸውን የኢትዮጵያ ቻናሎች መርጠው «Add to cart» ያድርጉ፤ ከዚያም Cart ውስጥ ገብተው «Create Ad in PAYchat →» ሲነኩ PAYchat Mini App-ኡን በቀጥታ ከፍቶ ዋጋውን አስልቶ ማስታወቂያዎን ያስጽፍዎታል።
     </div>
 
     <div class="accordion-row" onclick="toggleAcc('smart-acc')">
@@ -257,11 +257,12 @@
       return 0;
     }
 
-    // Builds direct Telegram Mini App URL matching paychatads.com checkout flow
-    function buildMiniAppCheckoutUrl(selectedItems) {
+    // Direct PAYchat Mini App checkout link using canonical_url returned by Partner API
+    function getDirectCheckoutUrl(selectedItems) {
       if (!selectedItems || selectedItems.length === 0) return 'https://t.me/PAYchat_aibot/app';
-      const ids = selectedItems.map(x => x.id).join('_');
-      return `https://t.me/PAYchat_aibot/app?startapp=cart_${ids}`;
+      const primary = selectedItems[0];
+      if (primary.canonicalUrl) return primary.canonicalUrl;
+      return `https://paychat.info/ads/${primary.id}`;
     }
 
     function buildCategoryTabs() {
@@ -414,7 +415,7 @@
         `;
         return;
       }
-      const miniAppUrl = buildMiniAppCheckoutUrl(cart);
+      const checkoutUrl = getDirectCheckoutUrl(cart);
       let html = `
         <p style="font-size:13px; color:#4b5563; margin-bottom:12px;">የመረጧቸውን ቻናሎች ያረጋግጡና ወደ PAYchat Mini App በመቀጠል ማስታወቂያዎን ይፍጠሩ።</p>
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
@@ -431,13 +432,16 @@
               <div style="font-size:12px; color:#6b7280;">24h · ${i.price.toFixed(2)} USDT</div>
             </div>
           </div>
-          <button onclick="toggleCart('${i.id}')" style="background:#fee2e2; color:#b91c1c; border:none; padding:7px 11px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer;">🗑️</button>
+          <div style="display:flex; gap:6px; align-items:center;">
+            <a href="${i.canonicalUrl}" target="_blank" style="background:#eef2ff; color:#5b46f6; padding:7px 10px; border-radius:8px; font-weight:700; font-size:12px;">ክፈት →</a>
+            <button onclick="toggleCart('${i.id}')" style="background:#fee2e2; color:#b91c1c; border:none; padding:7px 10px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer;">🗑️</button>
+          </div>
         </div>
       `).join('');
 
       html += `
         <p style="font-size:13px; color:#4b5563; margin:12px 0;">PAYchat ከክፍያ በፊት የመጨረሻውን ዋጋ እና መገኘት ያረጋግጣል።</p>
-        <a href="${miniAppUrl}" class="btn-purple-full" style="margin-bottom:10px;">Create Ad in PAYchat →</a>
+        <a href="${checkoutUrl}" target="_blank" class="btn-purple-full" style="margin-bottom:10px;">Create Ad in PAYchat →</a>
         <button onclick="goTab('browse', document.querySelectorAll('.nav-btn')[0])" style="width:100%; background:#ffffff; border:1px solid #e5e7eb; color:#111827; padding:11px; border-radius:12px; font-weight:700; font-size:14px; cursor:pointer; margin-bottom:10px;">+ Add more channels</button>
       `;
       box.innerHTML = html;
@@ -475,7 +479,7 @@
     function closeOwnerModal() { document.getElementById('owner-modal').style.display = 'none'; }
 
     const guideArticles = {
-      create: { title: "በPAYchat ላይ ማስታወቂያ እንዴት መፍጠር ይቻላል?", body: `<p>1. ቻናሎችን ይምረጡ እና ወደ Cart ይጨምሩ።<br>2. Cart ውስጥ ገብተው «Create Ad in PAYchat →» ሲነኩ Mini App-ኡን በቀጥታ ይከፍታል።<br>3. ማስታወቂያዎን ጽፈው በUSDT Escrow ይክፈሉ።</p>` },
+      create: { title: "በPAYchat ላይ ማስታወቂያ እንዴት መፍጠር ይቻላል?", body: `<p>1. ቻናሎችን ይምረጡ እና ወደ Cart ይጨምሩ።<br>2. Cart ውስጥ ገብተው «Create Ad in PAYchat →» ሲነኩ PAYchat Mini App-ኡን በቀጥታ ይከፍታል።<br>3. ማስታወቂያዎን ጽፈው በUSDT Escrow ይክፈሉ።</p>` },
       prices: { title: "የማስታወቂያ ዋጋዎች (0% Fee)", body: `<p>በEthio PAYchat Ads ላይ 0% ተጨማሪ ኮሚሽን ነው። የቻናሉ ባለቤት ያስቀመጠውን ቀጥተኛ ዋጋ ብቻ ይከፍላሉ።</p>` },
       owners: { title: "ለቻናል ባለቤቶች", body: `<p>ቻናልዎን በ@PAYchat_aibot ላይ በነጻ በማስመዝገብ በቀጥታ USDT ገቢ ያግኙ።</p>` }
     };
