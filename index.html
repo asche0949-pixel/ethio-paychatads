@@ -20,7 +20,7 @@
     .bonus-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
     .bonus-left { display: flex; gap: 12px; align-items: center; }
     .gift-icon { width: 42px; height: 42px; border-radius: 12px; background: #eef2ff; color: #5b46f6; display: flex; align-items: center; justify-content: center; font-size: 20px; }
-    .btn-purple-full { display: block; width: 100%; background: #5b46f6; color: #fff; text-align: center; padding: 12px; border-radius: 12px; font-weight: 700; font-size: 14px; border: none; cursor: pointer; }
+    .btn-purple-full { display: block; width: 100%; background: #5b46f6; color: #fff; text-align: center; padding: 13px; border-radius: 12px; font-weight: 700; font-size: 15px; border: none; cursor: pointer; }
     .trust-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 12px; }
     .trust-pill { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 8px 6px; text-align: center; font-size: 11px; font-weight: 700; color: #374151; }
     .trust-pill span { display: block; font-size: 15px; margin-bottom: 2px; }
@@ -81,7 +81,7 @@
 <body>
   <header>
     <div class="brand"><div class="brand-icon">⚡</div> Ethio <span>PAYchat Ads</span></div>
-    <a href="https://t.me/PAYchat_aibot" class="btn-open-top">PAYchat ክፈት</a>
+    <a href="https://t.me/PAYchat_aibot/app" class="btn-open-top">PAYchat ክፈት</a>
   </header>
 
   <div id="page-browse" class="tab-page active">
@@ -95,7 +95,7 @@
           </div>
         </div>
       </div>
-      <a href="https://t.me/PAYchat_aibot" class="btn-purple-full">ይመዝገቡ እና $30 ያግኙ</a>
+      <a href="https://t.me/PAYchat_aibot/app" class="btn-purple-full">ይመዝገቡ እና $30 ያግኙ</a>
     </div>
 
     <div class="trust-strip">
@@ -108,7 +108,7 @@
       <span>❓ እገዛ ይፈልጋሉ? (እንዴት ይሰራል?)</span><span>⌄</span>
     </div>
     <div class="accordion-body" id="help-acc">
-      እዚህ ዌብሳይት ላይ የሚፈልጓቸውን የኢትዮጵያ ቻናሎች መርጠው ወደ ቅርጫት ያስገቡ፤ ከዚያም በPAYchat Mini App ውስጥ በUSDT Escrow ዋስትና ክፍያዎን ይፈጽሙ።
+      የሚፈልጓቸውን የኢትዮጵያ ቻናሎች መርጠው «Add to cart» ያድርጉ፤ ከዚያም Cart ውስጥ ገብተው «Create Ad in PAYchat →» ሲነኩ PAYchat Mini App-ኡን በቀጥታ ከፍቶ ማስታወቂያዎን ያስጽፍዎታል።
     </div>
 
     <div class="accordion-row" onclick="toggleAcc('smart-acc')">
@@ -132,7 +132,7 @@
 
     <div class="browse-card-block">
       <div class="cat-scroll" id="cat-buttons">
-        <button class="cat-tab active" onclick="setCat('all', this)">ሁሉም (All)</button>
+        <button class="cat-tab active" onclick="setCat('all', this)">ሁሉም</button>
       </div>
       <div class="monetize-row">
         <div>
@@ -172,7 +172,7 @@
         <button class="g-pill" onclick="openArticle('owners')">ለቻናል ባለቤቶች</button>
       </div>
       <div class="guide-item" onclick="openArticle('create')">
-        <div><h4>በPAYchat ላይ ማስታወቂያ እንዴት መፍጠር ይቻላል?</h4><p>ቻናሎችን እዚህ ይምረጡ፤ ከዚያም በPAYchat Mini App ውስጥ ይክፈሉ።</p></div>
+        <div><h4>በPAYchat ላይ ማስታወቂያ እንዴት መፍጠር ይቻላል?</h4><p>ቻናሎችን ወደ Cart አስገብተው «Create Ad in PAYchat →» ሲነኩ Mini App-ኡን በቀጥታ ይከፍታል።</p></div>
         <span>›</span>
       </div>
       <div class="guide-item" onclick="openArticle('owners')">
@@ -184,7 +184,7 @@
 
     <div class="official-section">
       <div class="official-title">ኦፊሴላዊ የPAYchat ድጋፍ እና የሶሻል ቻናሎች</div>
-      <a href="https://t.me/PAYchat_aibot" class="official-link">✈️ Mini App (@PAYchat_aibot) ↗</a>
+      <a href="https://t.me/PAYchat_aibot/app" class="official-link">✈️ Mini App (@PAYchat_aibot) ↗</a>
       <a href="https://paychatads.com" target="_blank" class="official-link">🌐 ዋናው ዓለም አቀፍ ገጽ (PAYchat Ads) ↗</a>
       <a href="https://t.me/paychat_group" class="official-link">💬 ማህበረሰብ (Community) ↗</a>
       <p style="font-size:12px; color:#9ca3af; margin-top:12px;">© 2026 Ethio PAYchat Ads — Powered by PAYchat Partner API.</p>
@@ -198,7 +198,7 @@
       <div class="step-mini"><strong>1. PAYchat ቦት ይክፈቱ፦</strong> @PAYchat_aibot ይክፈቱ።</div>
       <div class="step-mini"><strong>2. "Add Channel" ይምረጡ፦</strong> ቻናልዎን ያስገቡና ቦቱን Admin ያድርጉት።</div>
       <div class="step-mini"><strong>3. ዋጋዎን ይወስኑ፦</strong> ለአንድ ማስታወቂያ የሚያስከፍሉትን ዋጋ በUSDT ያስቀምጡ!</div>
-      <a href="https://t.me/PAYchat_aibot" class="btn-purple-full" style="margin-top:12px;">አሁኑኑ ቻናልዎን ያስመዝግቡ →</a>
+      <a href="https://t.me/PAYchat_aibot/app" class="btn-purple-full" style="margin-top:12px;">አሁኑኑ ቻናልዎን ያስመዝግቡ →</a>
       <button onclick="closeOwnerModal()" style="width:100%; background:none; border:none; color:#6b7280; font-weight:700; margin-top:10px; cursor:pointer;">ዝጋ</button>
     </div>
   </div>
@@ -220,24 +220,19 @@
     let cart = [];
 
     const catAmharicMap = {
-      'entertainment': 'መዝናኛ',
+      'ent': 'መዝናኛና ሳቅ',
+      'entertainment': 'መዝናኛና ሳቅ',
       'humor': 'ቀልድና ሳቅ',
-      'comedy': 'ቀልድና ሳቅ',
-      'memes': 'ቀልድና ሳቅ',
       'news': 'ዜና',
       'crypto': 'ክሪፕቶ',
-      'cryptocurrency': 'ክሪፕቶ',
-      'finance': 'ፋይናንስና ንግድ',
+      'biz': 'ንግድ',
       'business': 'ንግድ',
-      'sport': '⚽ ስፖርት',
-      'sports': '⚽ ስፖርት',
-      'football': '⚽ ስፖርት',
-      'tech': 'ቴክኖሎጂ',
-      'technology': 'ቴክኖሎጂ',
+      'edu': 'ትምህርት',
       'education': 'ትምህርት',
-      'music': 'ሙዚቃ',
-      'movies': 'ፊልም',
-      'lifestyle': 'አኗኗር'
+      'tech': 'ቴክኖሎጂ',
+      'life': 'አኗኗር',
+      'sport': '⚽ ስፖርት',
+      'sports': '⚽ ስፖርት'
     };
 
     function getCatLabel(rawCat) {
@@ -253,11 +248,20 @@
       return String(n);
     }
 
-    function extractPrice(pricesObj) {
-      if (!pricesObj) return 0;
-      if (typeof pricesObj === "number") return pricesObj;
-      const vals = Object.values(pricesObj).map(v => parseFloat(v)).filter(v => !isNaN(v) && v > 0);
-      return vals.length > 0 ? Math.min(...vals) : 0;
+    function extractPrice(c) {
+      if (c.price && !isNaN(parseFloat(c.price))) return parseFloat(c.price);
+      if (c.prices && typeof c.prices === 'object') {
+        const vals = Object.values(c.prices).map(v => parseFloat(v)).filter(v => !isNaN(v) && v > 0);
+        if (vals.length > 0) return Math.min(...vals);
+      }
+      return 0;
+    }
+
+    // Builds direct Telegram Mini App URL matching paychatads.com checkout flow
+    function buildMiniAppCheckoutUrl(selectedItems) {
+      if (!selectedItems || selectedItems.length === 0) return 'https://t.me/PAYchat_aibot/app';
+      const ids = selectedItems.map(x => x.id).join('_');
+      return `https://t.me/PAYchat_aibot/app?startapp=cart_${ids}`;
     }
 
     function buildCategoryTabs() {
@@ -287,10 +291,11 @@
         channels = rawList.map((c, idx) => {
           const members = Number(c.members || c.subscribers || 0);
           const avgViews = Number(c.avg_views || 0);
-          const err = members > 0 ? Math.round((avgViews / members) * 100) + "%" : "—";
-          const rawCat = String(c.category || c.cat || 'General').trim();
+          const err = c.er_percent ? c.er_percent + "%" : (members > 0 ? Math.round((avgViews / members) * 100) + "%" : "—");
+          const rawCat = String(c.category || c.cat || 'General').trim().toLowerCase();
+          const chId = c.id || c.channel_id || idx + 1;
           return {
-            id: c.id || c.channel_id || idx + 1,
+            id: chId,
             name: c.title || c.name || "Unnamed Channel",
             handle: c.username ? (c.username.startsWith("@") ? c.username : "@" + c.username) : "",
             lang: c.language || c.lang || "am",
@@ -301,7 +306,8 @@
             avg: formatNum(avgViews),
             avgRaw: avgViews,
             err: err,
-            price: extractPrice(c.prices),
+            price: extractPrice(c),
+            canonicalUrl: c.canonical_url || `https://paychat.info/ads/${chId}`,
             metricsHtml: c.metrics_html || "",
             recentHtml: c.recent_posts_html || ""
           };
@@ -324,7 +330,7 @@
 
       let list = channels.filter(c => {
         const mLang = langFilter === 'ET_ALL' || (c.lang && c.lang.toLowerCase().includes('am'));
-        const mCat = curCat === 'all' || c.rawCat.toLowerCase() === curCat.toLowerCase();
+        const mCat = curCat === 'all' || c.rawCat === curCat.toLowerCase();
         const mBudget = c.price <= maxBudget;
         const mQuery = c.name.toLowerCase().includes(q) || c.handle.toLowerCase().includes(q) || c.catLabel.toLowerCase().includes(q);
         return mLang && mCat && mBudget && mQuery;
@@ -340,7 +346,7 @@
       }
 
       list.forEach(c => {
-        const added = cart.some(x => x.id === c.id);
+        const added = cart.some(x => String(x.id) === String(c.id));
         const avatarHtml = c.photo ? `<img src="${c.photo}" alt="">` : c.name.substring(0, 2);
         box.innerHTML += `
           <div class="ch-card">
@@ -365,7 +371,7 @@
             </div>
             <div class="price-text">${c.price.toFixed(2)} <span>USDT</span></div>
             <button class="btn-add-cart ${added ? 'added' : ''}" onclick="toggleCart('${c.id}')">
-              ${added ? '✓ ቅርጫት ውስጥ ገብቷል' : '🛒 ወደ ቅርጫት ጨምር (Add to cart)'}
+              ${added ? '✓ ቅርጫት ውስጥ ገብቷል (Cart ይመልከቱ)' : '🛒 Add to cart (ወደ ቅርጫት ጨምር)'}
             </button>
             <button class="btn-details" onclick="openDetails('${c.id}')">📊 ዝርዝር መረጃ (Analytics & posts)</button>
           </div>
@@ -388,6 +394,13 @@
     }
     function closeDetailsModal() { document.getElementById('details-modal').style.display = 'none'; }
 
+    function clearCart() {
+      cart = [];
+      document.getElementById('cart-badge').innerText = 0;
+      renderList();
+      renderCart();
+    }
+
     function renderCart() {
       const box = document.getElementById('cart-container');
       if (cart.length === 0) {
@@ -401,20 +414,31 @@
         `;
         return;
       }
-      const total = cart.reduce((s, x) => s + x.price, 0);
-      let html = cart.map(i => `
-        <div class="white-box" style="display:flex; justify-content:space-between; align-items:center;">
-          <div><strong>${i.name}</strong><div style="font-size:12px; color:#6b7280;">${i.price.toFixed(2)} USDT</div></div>
-          <button onclick="toggleCart('${i.id}')" style="background:#fee2e2; color:#b91c1c; border:none; padding:6px 12px; border-radius:8px; font-weight:700; cursor:pointer;">አጥፋ</button>
+      const miniAppUrl = buildMiniAppCheckoutUrl(cart);
+      let html = `
+        <p style="font-size:13px; color:#4b5563; margin-bottom:12px;">የመረጧቸውን ቻናሎች ያረጋግጡና ወደ PAYchat Mini App በመቀጠል ማስታወቂያዎን ይፍጠሩ።</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <strong style="font-size:15px;">${cart.length} ከ 50 ቻናሎች ተመርጠዋል</strong>
+          <button onclick="clearCart()" style="background:none; border:none; color:#5b46f6; font-weight:700; font-size:13px; cursor:pointer;">Clear cart</button>
+        </div>
+      `;
+      html += cart.map(i => `
+        <div class="white-box" style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <div class="ch-avatar" style="width:40px; height:40px; font-size:13px;">${i.photo ? `<img src="${i.photo}" alt="">` : i.name.substring(0,2)}</div>
+            <div>
+              <strong style="font-size:15px;">${i.name}</strong>
+              <div style="font-size:12px; color:#6b7280;">24h · ${i.price.toFixed(2)} USDT</div>
+            </div>
+          </div>
+          <button onclick="toggleCart('${i.id}')" style="background:#fee2e2; color:#b91c1c; border:none; padding:7px 11px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer;">🗑️</button>
         </div>
       `).join('');
+
       html += `
-        <div class="white-box">
-          <div style="display:flex; justify-content:space-between; font-weight:800; font-size:16px; margin-bottom:12px;">
-            <span>ጠቅላላ ክፍያ:</span><span>${total.toFixed(2)} USDT</span>
-          </div>
-          <a href="https://t.me/PAYchat_aibot" class="btn-purple-full" style="background:#16a34a;">PAYchat ላይ ይክፈሉ (${total.toFixed(2)} USDT) →</a>
-        </div>
+        <p style="font-size:13px; color:#4b5563; margin:12px 0;">PAYchat ከክፍያ በፊት የመጨረሻውን ዋጋ እና መገኘት ያረጋግጣል።</p>
+        <a href="${miniAppUrl}" class="btn-purple-full" style="margin-bottom:10px;">Create Ad in PAYchat →</a>
+        <button onclick="goTab('browse', document.querySelectorAll('.nav-btn')[0])" style="width:100%; background:#ffffff; border:1px solid #e5e7eb; color:#111827; padding:11px; border-radius:12px; font-weight:700; font-size:14px; cursor:pointer; margin-bottom:10px;">+ Add more channels</button>
       `;
       box.innerHTML = html;
     }
@@ -451,7 +475,7 @@
     function closeOwnerModal() { document.getElementById('owner-modal').style.display = 'none'; }
 
     const guideArticles = {
-      create: { title: "በPAYchat ላይ ማስታወቂያ እንዴት መፍጠር ይቻላል?", body: `<p>1. ቻናሎችን ይምረጡ እና ወደ ቅርጫት ይጨምሩ።<br>2. Cart ውስጥ ገብተው "PAYchat ላይ ይክፈሉ" የሚለውን ይንኩ።<br>3. በUSDT Escrow ዋስትና ክፍያዎን ይፈጽሙ።</p>` },
+      create: { title: "በPAYchat ላይ ማስታወቂያ እንዴት መፍጠር ይቻላል?", body: `<p>1. ቻናሎችን ይምረጡ እና ወደ Cart ይጨምሩ።<br>2. Cart ውስጥ ገብተው «Create Ad in PAYchat →» ሲነኩ Mini App-ኡን በቀጥታ ይከፍታል።<br>3. ማስታወቂያዎን ጽፈው በUSDT Escrow ይክፈሉ።</p>` },
       prices: { title: "የማስታወቂያ ዋጋዎች (0% Fee)", body: `<p>በEthio PAYchat Ads ላይ 0% ተጨማሪ ኮሚሽን ነው። የቻናሉ ባለቤት ያስቀመጠውን ቀጥተኛ ዋጋ ብቻ ይከፍላሉ።</p>` },
       owners: { title: "ለቻናል ባለቤቶች", body: `<p>ቻናልዎን በ@PAYchat_aibot ላይ በነጻ በማስመዝገብ በቀጥታ USDT ገቢ ያግኙ።</p>` }
     };
