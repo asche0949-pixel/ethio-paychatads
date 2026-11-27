@@ -13,7 +13,7 @@ jobs:
       - name: Fetch Ethiopian Channels
         run: |
           curl -s -H "X-API-Key: ${{ secrets.PAYCHAT_API_KEY }}" \
-          "https://paychat.info/api/partner/shop/channels?country=ET&limit=100&offset=0" \
+          "https://paychat.info/api/partner/shop/channels?country=ET&limit=30&offset=0" \
           -o channels.json
       - name: Commit channels.json
         run: |
