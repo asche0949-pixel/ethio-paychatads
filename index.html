@@ -11,25 +11,21 @@
     body { background: #f5f6f8; color: #111827; padding-bottom: 84px; line-height: 1.55; }
     a { text-decoration: none; }
 
-    /* Top Header */
     header { background: #ffffff; padding: 12px 16px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
     .brand { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 18px; color: #111827; }
     .brand-icon { width: 28px; height: 28px; border-radius: 50%; background: #5b46f6; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; }
     .brand span { color: #5b46f6; }
     .btn-open-top { background: #5b46f6; color: #fff; padding: 8px 16px; border-radius: 99px; font-weight: 700; font-size: 13px; }
 
-    /* Tab Pages */
     .tab-page { display: none; max-width: 640px; margin: 0 auto; padding: 14px; }
     .tab-page.active { display: block; }
 
-    /* Cards & Accordions */
     .white-box { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 14px 16px; margin-bottom: 12px; }
     .bonus-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
     .bonus-left { display: flex; gap: 12px; align-items: center; }
     .gift-icon { width: 42px; height: 42px; border-radius: 12px; background: #eef2ff; color: #5b46f6; display: flex; align-items: center; justify-content: center; font-size: 20px; }
     .btn-purple-full { display: block; width: 100%; background: #5b46f6; color: #fff; text-align: center; padding: 12px; border-radius: 12px; font-weight: 700; font-size: 14px; border: none; cursor: pointer; }
 
-    /* Trust / Escrow Strip */
     .trust-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 12px; }
     .trust-pill { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 8px 6px; text-align: center; font-size: 11px; font-weight: 700; color: #374151; }
     .trust-pill span { display: block; font-size: 15px; margin-bottom: 2px; }
@@ -37,16 +33,13 @@
     .accordion-row { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 13px 16px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; font-size: 14px; color: #1f2937; }
     .accordion-body { display: none; background: #ffffff; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 14px 14px; padding: 14px 16px; margin-top: -14px; margin-bottom: 12px; font-size: 13px; color: #4b5563; }
 
-    /* Search Input */
     .search-wrap { position: relative; margin-bottom: 12px; }
     .search-input { width: 100%; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 12px 16px; font-size: 14px; color: #111827; }
 
-    /* Category Tabs + Monetize Card */
     .browse-card-block { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 12px; margin-bottom: 12px; }
     .cat-scroll { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 12px; border-bottom: 1px solid #f3f4f6; margin-bottom: 12px; }
     .cat-scroll::-webkit-scrollbar { display: none; }
     .cat-tab { background: #f8fafc; border: 1px solid #e5e7eb; color: #374151; padding: 8px 14px; border-radius: 10px; font-size: 13px; font-weight: 700; white-space: nowrap; cursor: pointer; display: flex; align-items: center; gap: 6px; }
-    .cat-tab span { color: #6b7280; font-weight: 600; font-size: 12px; }
     .cat-tab.active { background: #eef2ff; border-color: #c7d2fe; color: #111827; }
 
     .monetize-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
@@ -54,14 +47,13 @@
     .monetize-row p { font-size: 12px; color: #6b7280; }
     .btn-list-ch { background: #5b46f6; color: #fff; padding: 9px 14px; border-radius: 99px; font-size: 12px; font-weight: 700; white-space: nowrap; border: none; cursor: pointer; }
 
-    /* Dropdown Selectors */
     .select-box { width: 100%; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 12px 16px; font-size: 14px; font-weight: 700; color: #1f2937; margin-bottom: 10px; appearance: auto; }
 
-    /* Channel Listing Cards */
     .ch-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 18px; padding: 16px; margin-bottom: 12px; }
     .ch-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
     .ch-left { display: flex; gap: 12px; align-items: center; }
-    .ch-avatar { width: 46px; height: 46px; border-radius: 50%; background: #1e1b4b; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; }
+    .ch-avatar { width: 46px; height: 46px; border-radius: 50%; background: #1e1b4b; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; overflow: hidden; flex-shrink: 0; }
+    .ch-avatar img { width: 100%; height: 100%; object-fit: cover; }
     .verified-row { display: flex; gap: 6px; align-items: center; margin-bottom: 3px; }
     .v-badge { background: #dcfce7; color: #15803d; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 99px; }
     .n-badge { font-size: 11px; font-weight: 700; color: #4b5563; }
@@ -78,36 +70,25 @@
     .btn-add-cart.added { background: #16a34a; }
     .btn-details { width: 100%; background: #f8fafc; color: #374151; border: 1px solid #e5e7eb; padding: 9px; border-radius: 12px; font-weight: 600; font-size: 13px; cursor: pointer; }
 
-    /* Guides Page & Interactive Article Reader */
     .guide-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
     .g-pill { background: #ffffff; border: 1px solid #e5e7eb; padding: 7px 14px; border-radius: 99px; font-size: 13px; font-weight: 700; color: #374151; cursor: pointer; }
-    .g-pill:hover { border-color: #5b46f6; color: #5b46f6; }
-    .guide-item { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 16px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: pointer; transition: 0.15s; }
-    .guide-item:hover { border-color: #5b46f6; background: #fafafe; }
+    .guide-item { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 16px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: pointer; }
     .guide-item h4 { font-size: 15px; font-weight: 800; margin-bottom: 4px; color: #111827; }
     .guide-item p { font-size: 13px; color: #6b7280; }
-    .guide-arrow { font-size: 18px; font-weight: 800; color: #9ca3af; }
-
     .article-box { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px; margin-bottom: 16px; }
-    .btn-back-guides { background: #eef2ff; color: #5b46f6; border: none; padding: 8px 14px; border-radius: 10px; font-weight: 700; font-size: 13px; cursor: pointer; margin-bottom: 14px; display: inline-flex; align-items: center; gap: 6px; }
-    .article-box h3 { font-size: 19px; font-weight: 800; color: #111827; margin-bottom: 10px; }
-    .article-box p { font-size: 14px; color: #374151; margin-bottom: 12px; }
-    .article-box ul { padding-left: 18px; font-size: 14px; color: #374151; margin-bottom: 14px; }
-    .article-box li { margin-bottom: 6px; }
+    .btn-back-guides { background: #eef2ff; color: #5b46f6; border: none; padding: 8px 14px; border-radius: 10px; font-weight: 700; font-size: 13px; cursor: pointer; margin-bottom: 14px; }
+    .article-box h3 { font-size: 19px; font-weight: 800; margin-bottom: 10px; }
+    .article-box p, .article-box ul { font-size: 14px; color: #374151; margin-bottom: 12px; }
+    .article-box ul { padding-left: 18px; }
 
-    /* Modal for Channel Owners Onboarding */
     .modal-bg { display: none; position: fixed; inset: 0; background: rgba(17,24,39,0.6); z-index: 300; align-items: center; justify-content: center; padding: 16px; }
-    .modal-card { background: #ffffff; border-radius: 20px; max-width: 440px; width: 100%; padding: 22px; }
-    .modal-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
-    .modal-card p { font-size: 13px; color: #4b5563; margin-bottom: 12px; }
+    .modal-card { background: #ffffff; border-radius: 20px; max-width: 440px; width: 100%; padding: 22px; max-height: 85vh; overflow-y: auto; }
     .step-mini { background: #f8fafc; border-radius: 12px; padding: 10px 12px; margin-bottom: 8px; font-size: 13px; }
 
     .official-section { text-align: center; margin-top: 28px; padding-top: 20px; border-top: 1px solid #e5e7eb; }
     .official-title { font-size: 14px; font-weight: 700; color: #6b7280; margin-bottom: 14px; }
     .official-link { display: flex; align-items: center; justify-content: center; gap: 8px; color: #1f2937; font-weight: 700; font-size: 15px; padding: 10px 0; }
-    .official-link:hover { color: #5b46f6; }
 
-    /* Bottom Navigation */
     .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: #ffffff; border-top: 1px solid #e5e7eb; display: flex; justify-content: space-around; padding: 8px 0; z-index: 200; }
     .nav-btn { background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 2px; color: #6b7280; font-size: 12px; font-weight: 600; cursor: pointer; padding: 5px 22px; border-radius: 12px; position: relative; }
     .nav-btn.active { background: #eef2ff; color: #5b46f6; font-weight: 800; }
@@ -116,16 +97,13 @@
 </head>
 <body>
 
-  <!-- TOP BAR -->
   <header>
     <div class="brand"><div class="brand-icon">⚡</div> Ethio <span>PAYchat Ads</span></div>
-    <a href="https://t.me/PAYchat_aibot" class="btn-open-top partner-link">PAYchat ክፈት</a>
+    <a href="https://t.me/PAYchat_aibot" class="btn-open-top">PAYchat ክፈት</a>
   </header>
 
   <!-- TAB 1: BROWSE -->
   <div id="page-browse" class="tab-page active">
-    
-    <!-- Top $30 Offer Banner -->
     <div class="white-box">
       <div class="bonus-header">
         <div class="bonus-left">
@@ -136,29 +114,26 @@
           </div>
         </div>
       </div>
-      <a href="https://t.me/PAYchat_aibot" class="btn-purple-full partner-link">ይመዝገቡ እና $30 ያግኙ</a>
+      <a href="https://t.me/PAYchat_aibot" class="btn-purple-full">ይመዝገቡ እና $30 ያግኙ</a>
     </div>
 
-    <!-- Trust & Escrow Strip -->
     <div class="trust-strip">
       <div class="trust-pill"><span>🛡️</span>100% Escrow ዋስትና</div>
       <div class="trust-pill"><span>💸</span>0% ተጨማሪ ኮሚሽን</div>
       <div class="trust-pill"><span>⚡</span>በUSDT ፈጣን ክፍያ</div>
     </div>
 
-    <!-- Need Help Accordion -->
     <div class="accordion-row" onclick="toggleAcc('help-acc')">
       <span>❓ እገዛ ይፈልጋሉ? (እንዴት ይሰራል?)</span><span>⌄</span>
     </div>
     <div class="accordion-body" id="help-acc">
-      እዚህ ዌብሳይት ላይ የሚፈልጓቸውን የኢትዮጵያ እና የዓለም አቀፍ ቻናሎች መርጠው ወደ ቅርጫት ያስገቡ፤ ከዚያም በPAYchat Mini App ውስጥ በUSDT Escrow ዋስትና ክፍያዎን ይፈጽሙ። ማስታወቂያው ለ24 ሰዓት ካልተለቀቀ ገንዘብዎ ሙሉ በሙሉ ይመለሳል።
+      እዚህ ዌብሳይት ላይ የሚፈልጓቸውን የኢትዮጵያ ቻናሎች መርጠው ወደ ቅርጫት ያስገቡ፤ ከዚያም በPAYchat Mini App ውስጥ በUSDT Escrow ዋስትና ክፍያዎን ይፈጽሙ።
     </div>
 
-    <!-- Smart Match Accordion -->
     <div class="accordion-row" onclick="toggleAcc('smart-acc')">
       <div>
         <div>⚡ Smart Match — በበጀትዎ ቻናል ይፈልጉ</div>
-        <div style="font-size:12px; font-weight:400; color:#6b7280;">ቻናሎችን ከታዳሚዎ እና ከበጀትዎ ጋር ያዛምዱ።</div>
+        <div style="font-size:12px; font-weight:400; color:#6b7280;">ቻናሎችን ከበጀትዎ ጋር ያዛምዱ።</div>
       </div>
       <span>⌄</span>
     </div>
@@ -170,25 +145,20 @@
       </div>
     </div>
 
-    <!-- Search Bar -->
     <div class="search-wrap">
-      <input type="text" id="search-input" class="search-input" onkeyup="renderList()" placeholder="🔍 ቻናሎችን ይፈልጉ (ስፖርት፣ ዜና፣ ክሪፕቶ፣ ሙዚቃ...)..." />
+      <input type="text" id="search-input" class="search-input" onkeyup="renderList()" placeholder="🔍 ቻናሎችን ይፈልጉ..." />
     </div>
 
-    <!-- Category Tabs + Monetize Your Channel -->
     <div class="browse-card-block">
       <div class="cat-scroll">
-        <button class="cat-tab active" onclick="setCat('all', this)">ሁሉም <span>2397</span></button>
-        <button class="cat-tab" onclick="setCat('መዝናኛ', this)">መዝናኛ <span>645</span></button>
-        <button class="cat-tab" onclick="setCat('ዜና', this)">ዜና <span>468</span></button>
-        <button class="cat-tab" onclick="setCat('ስፖርት', this)">⚽ ስፖርት <span>380</span></button>
-        <button class="cat-tab" onclick="setCat('ክሪፕቶ', this)">ክሪፕቶ <span>322</span></button>
-        <button class="cat-tab" onclick="setCat('ቴክኖሎጂ', this)">ቴክኖሎጂ <span>311</span></button>
-        <button class="cat-tab" onclick="setCat('ንግድ', this)">ንግድ <span>220</span></button>
-        <button class="cat-tab" onclick="setCat('ትምህርት', this)">ትምህርት <span>197</span></button>
-        <button class="cat-tab" onclick="setCat('ሙዚቃ እና ዳንስ', this)">🎵 ሙዚቃ እና ዳንስ <span>140</span></button>
-        <button class="cat-tab" onclick="setCat('ፊልም እና ድራማ', this)">🎬 ፊልም እና ድራማ <span>115</span></button>
-        <button class="cat-tab" onclick="setCat('ላይፍ ስታይል', this)">ላይፍ ስታይል <span>69</span></button>
+        <button class="cat-tab active" onclick="setCat('all', this)">ሁሉም</button>
+        <button class="cat-tab" onclick="setCat('መዝናኛ', this)">መዝናኛ</button>
+        <button class="cat-tab" onclick="setCat('ዜና', this)">ዜና</button>
+        <button class="cat-tab" onclick="setCat('ስፖርት', this)">⚽ ስፖርት</button>
+        <button class="cat-tab" onclick="setCat('ክሪፕቶ', this)">ክሪፕቶ</button>
+        <button class="cat-tab" onclick="setCat('ቴክኖሎጂ', this)">ቴክኖሎጂ</button>
+        <button class="cat-tab" onclick="setCat('ንግድ', this)">ንግድ</button>
+        <button class="cat-tab" onclick="setCat('ትምህርት', this)">ትምህርት</button>
       </div>
       <div class="monetize-row">
         <div>
@@ -199,16 +169,9 @@
       </div>
     </div>
 
-    <!-- 3 Filter Dropdowns -->
-    <select id="country-filter" class="select-box" onchange="renderList()">
-      <option value="all">🌍 ሁሉም ሀገራት (ኢትዮጵያ እና ዓለም አቀፍ)</option>
-      <option value="ET">🇪🇹 ኢትዮጵያ ብቻ (Ethiopia)</option>
-      <option value="GLOBAL">🌐 ዓለም አቀፍ (Global)</option>
-    </select>
-
-    <select class="select-box" onchange="renderList()">
-      <option value="all">ሁሉም ቻናሎች (All channels)</option>
-      <option value="verified">✔ የተረጋገጡ ብቻ (Verified)</option>
+    <select id="lang-filter" class="select-box" onchange="loadChannels(true)">
+      <option value="ET_ALL">🇪🇹 ሁሉም የኢትዮጵያ ቻናሎች (All Ethiopia)</option>
+      <option value="ET_AM">🇪🇹 የአማርኛ ቻናሎች ብቻ (Amharic only)</option>
     </select>
 
     <select id="sort-filter" class="select-box" onchange="renderList()">
@@ -218,26 +181,13 @@
     </select>
 
     <h3 style="font-size:18px; font-weight:800; margin:14px 0 10px;">የሚገኙ ቻናሎች <span style="color:#6b7280; font-size:14px;" id="ch-count-label"></span></h3>
+    <div id="api-status" style="font-size:12px; color:#6b7280; margin-bottom:10px;">⏳ የኢትዮጵያ ቻናሎችን ከPAYchat ሰርቨር በማምጣት ላይ...</div>
     <div id="channels-list"></div>
   </div>
 
   <!-- TAB 2: CART -->
   <div id="page-cart" class="tab-page">
     <h2 style="font-size:24px; font-weight:800; margin-bottom:14px;">የእርስዎ ቅርጫት (Your cart)</h2>
-    <div class="white-box">
-      <div class="bonus-header">
-        <div class="bonus-left">
-          <div class="gift-icon">🎁</div>
-          <div>
-            <div style="font-size:11px; font-weight:700; color:#6b7280;">ለአዲስ አባላት</div>
-            <div style="font-size:16px; font-weight:800;">ለማስታወቂያ $30 ያግኙ</div>
-            <div style="font-size:12px; color:#6b7280;">🕒 የመውሰጃ ጊዜ: 1 ቀን 4 ሰዓት</div>
-          </div>
-        </div>
-      </div>
-      <a href="https://t.me/PAYchat_aibot" class="btn-purple-full partner-link">ይመዝገቡ እና $30 ያግኙ</a>
-    </div>
-    <p style="font-size:13px; color:#4b5563; margin-bottom:14px;">የመረጧቸውን ቻናሎች ይገምግሙና ማስታወቂያዎን ለመፍጠር እና በEscrow ዋስትና ለመክፈል ወደ PAYchat ይቀጥሉ።</p>
     <div id="cart-container"></div>
   </div>
 
@@ -245,241 +195,173 @@
   <div id="page-guides" class="tab-page">
     <div id="guides-home">
       <div class="guide-pills">
-        <button class="g-pill" onclick="openArticle('plan')">እቅድ እና ልኬት</button>
+        <button class="g-pill" onclick="openArticle('create')">እንዴት ይሰራል?</button>
         <button class="g-pill" onclick="openArticle('prices')">ዋጋዎች</button>
-        <button class="g-pill" onclick="openArticle('regions')">ሀገራት</button>
         <button class="g-pill" onclick="openArticle('owners')">ለቻናል ባለቤቶች</button>
-        <button class="g-pill" onclick="openArticle('help')">እገዛ</button>
       </div>
-
-      <h2 style="font-size:20px; font-weight:800; margin-bottom:4px;">አጀማመር (Getting started)</h2>
-      <p style="font-size:13px; color:#6b7280; margin-bottom:14px;">ዝርዝር መመሪያውን ለማንበብ ከታች ያሉትን ርዕሶች ይንኩ።</p>
-
       <div class="guide-item" onclick="openArticle('create')">
-        <div>
-          <h4>በPAYchat ላይ ማስታወቂያ እንዴት መፍጠር ይቻላል?</h4>
-          <p>ቻናሎችን እዚህ ይምረጡ፤ ከዚያም በPAYchat Mini App ውስጥ ማስታወቂያዎን ይፍጠሩና ይክፈሉ።</p>
-        </div>
-        <span class="guide-arrow">›</span>
+        <div><h4>በPAYchat ላይ ማስታወቂያ እንዴት መፍጠር ይቻላል?</h4><p>ቻናሎችን እዚህ ይምረጡ፤ ከዚያም በPAYchat Mini App ውስጥ ይክፈሉ።</p></div>
+        <span>›</span>
       </div>
-
-      <div class="guide-item" onclick="openArticle('explained')">
-        <div>
-          <h4>የቴሌግራም ማስታወቂያ ማብራሪያ</h4>
-          <p>የቻናል ፖስቶች (Channel posts) እና Sponsored Messages ያላቸው ልዩነት።</p>
-        </div>
-        <span class="guide-arrow">›</span>
-      </div>
-
-      <div class="guide-item" onclick="openArticle('topics')">
-        <div>
-          <h4>የቴሌግራም ቻናሎችን በዘርፍ ይፈልጉ</h4>
-          <p>ምድቦችን (ስፖርት፣ መዝናኛ፣ ዜና፣ ክሪፕቶ፣ ሙዚቃ፣ ቴክኖሎጂ) ያስሱ እና ዋጋዎችን ያወዳድሩ።</p>
-        </div>
-        <span class="guide-arrow">›</span>
+      <div class="guide-item" onclick="openArticle('owners')">
+        <div><h4>የቴሌግራም ቻናልዎን እንዴት ማስመዝገብ ይችላሉ?</h4><p>በነጻ ተመዝግበው በUSDT ገቢ ያግኙ።</p></div>
+        <span>›</span>
       </div>
     </div>
-
-    <!-- Dynamic Full Guide Article View -->
     <div id="guide-reader" style="display:none;"></div>
 
-    <!-- Official Support & Social Channels -->
     <div class="official-section">
-      <div class="official-title">የማስታወቂያ እገዛ (Advertising assistance)</div>
-      <a href="https://t.me/PAYchat_aibot" class="partner-link" style="display:block; color:#5b46f6; font-weight:800; font-size:14px; margin-bottom:8px;">በቴሌግራም የማስታወቂያ ባለሙያ ያግኙ</a>
-      <a href="https://t.me/paychat_group" style="display:block; color:#5b46f6; font-weight:800; font-size:14px; margin-bottom:22px;">ድጋፍ እና እገዛ (Contact & support)</a>
-
       <div class="official-title">ኦፊሴላዊ የPAYchat ድጋፍ እና የሶሻል ቻናሎች</div>
-      <a href="https://t.me/PAYchat_aibot" class="official-link partner-link">✈️ Mini App (@PAYchat_aibot) ↗</a>
+      <a href="https://t.me/PAYchat_aibot" class="official-link">✈️ Mini App (@PAYchat_aibot) ↗</a>
       <a href="https://paychatads.com" target="_blank" class="official-link">🌐 ዋናው ዓለም አቀፍ ገጽ (PAYchat Ads) ↗</a>
       <a href="https://t.me/paychat_group" class="official-link">💬 ማህበረሰብ (Community) ↗</a>
-      <a href="https://t.me/PAYchat_Info" class="official-link">📢 ማስታወቂያዎች (Announcements) ↗</a>
-      <a href="https://t.me/addlist/mBUiRQAM7cZhZjFl" class="official-link">📁 የቻናሎች አቃፊ (Channel folder) ↗</a>
-      <a href="https://x.com/paychat_aibot" class="official-link">𝕏 X / Twitter ↗</a>
-      <a href="https://youtube.com/@PAYchat_aibot" class="official-link">▶️ YouTube ↗</a>
-      <a href="https://www.instagram.com/paychatai" class="official-link">📸 Instagram ↗</a>
-      <a href="https://www.facebook.com/share/1TwRnhRWws" class="official-link">👥 Facebook ↗</a>
-
-      <p style="font-size:12px; color:#6b7280; margin-top:16px;">P2P disputes ለP2P ግብይቶች ብቻ የሚያገለግል ነው።</p>
-      <p style="font-size:12px; color:#9ca3af; margin-top:12px;">© 2026 Ethio PAYchat Ads (ethiopaychatads.com) — Powered by PAYchat Ecosystem. ቻናሎችን እዚህ ይምረጡ፤ ክፍያውን በPAYchat Mini App ይፈጽሙ።</p>
+      <p style="font-size:12px; color:#9ca3af; margin-top:12px;">© 2026 Ethio PAYchat Ads — Powered by PAYchat Partner API.</p>
     </div>
   </div>
 
-  <!-- MODAL: CHANNEL OWNER ONBOARDING -->
+  <!-- MODAL: OWNER ONBOARDING -->
   <div class="modal-bg" id="owner-modal" onclick="if(event.target===this) closeOwnerModal()">
     <div class="modal-card">
       <h3>📢 የቴሌግራም ቻናልዎን ያስመዝግቡ</h3>
-      <p>ቻናልዎ ከ1,000 በላይ ተከታዮች ካሉት አሁኑኑ በነጻ በማስመዝገብ ማስታወቂያዎችን እየተቀበሉ በቀጥታ <strong>USDT</strong> ማግኘት ይችላሉ፦</p>
-      <div class="step-mini"><strong>1. PAYchat ቦት ይክፈቱ፦</strong> ከታች ያለውን ቁልፍ ነክተው @PAYchat_aibot ይክፈቱ።</div>
-      <div class="step-mini"><strong>2. "Add Channel" ይምረጡ፦</strong> የቻናልዎን ሊንክ ያስገቡና ቦቱን Admin ያድርጉት (ፖስት እንዲያረጋግጥ ብቻ)።</div>
-      <div class="step-mini"><strong>3. ዋጋዎን ይወስኑ፦</strong> ለአንድ ማስታወቂያ የሚያስከፍሉትን ዋጋ በUSDT ያስቀምጡና ገቢ ማግኘት ይጀምሩ!</div>
-      <a href="https://t.me/PAYchat_aibot" class="btn-purple-full partner-link" style="margin-top:12px;">አሁኑኑ ቻናልዎን ያስመዝግቡ →</a>
+      <p>ቻናልዎን በነጻ በማስመዝገብ ማስታወቂያዎችን እየተቀበሉ በቀጥታ <strong>USDT</strong> ያግኙ፦</p>
+      <div class="step-mini"><strong>1. PAYchat ቦት ይክፈቱ፦</strong> @PAYchat_aibot ይክፈቱ።</div>
+      <div class="step-mini"><strong>2. "Add Channel" ይምረጡ፦</strong> ቻናልዎን ያስገቡና ቦቱን Admin ያድርጉት።</div>
+      <div class="step-mini"><strong>3. ዋጋዎን ይወስኑ፦</strong> ለአንድ ማስታወቂያ የሚያስከፍሉትን ዋጋ በUSDT ያስቀምጡ!</div>
+      <a href="https://t.me/PAYchat_aibot" class="btn-purple-full" style="margin-top:12px;">አሁኑኑ ቻናልዎን ያስመዝግቡ →</a>
       <button onclick="closeOwnerModal()" style="width:100%; background:none; border:none; color:#6b7280; font-weight:700; margin-top:10px; cursor:pointer;">ዝጋ</button>
     </div>
   </div>
 
-  <!-- BOTTOM NAVIGATION -->
+  <!-- MODAL: ANALYTICS DETAILS -->
+  <div class="modal-bg" id="details-modal" onclick="if(event.target===this) closeDetailsModal()">
+    <div class="modal-card" id="details-modal-body"></div>
+  </div>
+
+  <!-- BOTTOM NAV -->
   <nav class="bottom-nav">
-    <button class="nav-btn active" onclick="goTab('browse', this)">
-      <span>🏠</span><span>Browse</span>
-    </button>
-    <button class="nav-btn" onclick="goTab('cart', this)">
-      <span class="badge-cnt" id="cart-badge">0</span>
-      <span>🛒</span><span>Cart</span>
-    </button>
-    <button class="nav-btn" onclick="goTab('guides', this)">
-      <span>📖</span><span>Guides</span>
-    </button>
+    <button class="nav-btn active" onclick="goTab('browse', this)"><span>🏠</span><span>Browse</span></button>
+    <button class="nav-btn" onclick="goTab('cart', this)"><span class="badge-cnt" id="cart-badge">0</span><span>🛒</span><span>Cart</span></button>
+    <button class="nav-btn" onclick="goTab('guides', this)"><span>📖</span><span>Guides</span></button>
   </nav>
 
   <script>
-    // ==========================================
-    // PARTNER API & TRACKING CONFIGURATION
-    // (Aaron የAPI ቁልፍ እና የሪፈራል ኮድ ሲሰጥህ እዚህ ይገባል)
-    // ==========================================
-    const CONFIG = {
-      PARTNER_REF_CODE: "", // ለምሳሌ: "?start=ethio_partner"
-      PARTNER_API_URL: ""   // Aaron የሚልክልህ የቀጥታ ቻናሎች API ሊንክ
-    };
+    // =========================================================================
+    // 👇 የአንተን API KEY እዚህ "YOUR_API_KEY_HERE" የሚለው ቦታ ላይ Paste አድርግ! 👇
+    // =========================================================================
+    const PAYCHAT_API_KEY = "pk_73322f48768ebe5bbd3014289b29ef3948a1289ac2c411a7";
+    const API_BASE = "https://paychat.info/api/partner/shop";
 
-    const channels = [
-      { id: 1, name: "Ethio Football & Sport", handle: "@EthioSportLive", cat: "ስፖርት", country: "ET", viewsList: 134, subs: "185.0K", avg: "52.3K", err: "28%", price: 11.00 },
-      { id: 2, name: "Habesha Music & Dance", handle: "@HabeshaMusicVibe", cat: "ሙዚቃ እና ዳንስ", country: "ET", viewsList: 98, subs: "110.2K", avg: "31.4K", err: "28%", price: 6.00 },
-      { id: 3, name: "Ethio Tech & Digital", handle: "@EthioTechNews", cat: "ቴክኖሎጂ", country: "ET", viewsList: 88, subs: "85.4K", avg: "22.1K", err: "26%", price: 5.00 },
-      { id: 4, name: "Addis Business Market", handle: "@AddisBizMarket", cat: "ንግድ", country: "ET", viewsList: 75, subs: "120.0K", avg: "34.5K", err: "29%", price: 8.00 },
-      { id: 5, name: "Ethiopia Daily News", handle: "@EthioDailyNews", cat: "ዜና", country: "ET", viewsList: 112, subs: "240.0K", avg: "65.0K", err: "27%", price: 15.00 },
-      { id: 6, name: "Ethio Crypto & Trading", handle: "@EthioCryptoHub", cat: "ክሪፕቶ", country: "ET", viewsList: 81, subs: "53.7K", avg: "10.3K", err: "19%", price: 12.00 },
-      { id: 7, name: "Habesha Movies & Drama", handle: "@HabeshaCinema", cat: "ፊልም እና ድራማ", country: "ET", viewsList: 91, subs: "132.5K", avg: "39.8K", err: "30%", price: 9.00 },
-      { id: 8, name: "Habesha Comedy & Fun", handle: "@HabeshaComedy", cat: "መዝናኛ", country: "ET", viewsList: 93, subs: "150.8K", avg: "45.2K", err: "30%", price: 10.00 },
-      { id: 9, name: "Ethio Online Education", handle: "@EthioEduHub", cat: "ትምህርት", country: "ET", viewsList: 62, subs: "68.0K", avg: "18.5K", err: "27%", price: 4.00 },
-      { id: 10, name: "Addis Modern Lifestyle", handle: "@AddisLifestyle", cat: "ላይፍ ስታይል", country: "ET", viewsList: 70, subs: "74.0K", avg: "21.0K", err: "28%", price: 5.50 }
-    ];
-
-    const guideArticles = {
-      create: {
-        title: "በPAYchat ላይ ማስታወቂያ እንዴት መፍጠር ይቻላል? (5 ቀላል ደረጃዎች)",
-        body: `
-          <p>በEthio PAYchat Ads አማካኝነት በኢትዮጵያ ታዋቂ የቴሌግራም ቻናሎች ላይ ማስታወቂያ ማሰራት እጅግ ቀላል ነው፦</p>
-          <ul>
-            <li><strong>ደረጃ 1 — ቻናሎችን ይምረጡ፦</strong> Browse ገጽ ላይ በዘርፍ እና በእይታ ብዛት አወዳድረው የሚፈልጓቸውን ቻናሎች "ወደ ቅርጫት ጨምር" ይበሉ።</li>
-            <li><strong>ደረጃ 2 — ቅርጫትዎን ይገምግሙ፦</strong> Cart ታብ ውስጥ ገብተው የመረጧቸውን ቻናሎች እና ጠቅላላ ዋጋውን በUSDT ያረጋግጡ።</li>
-            <li><strong>ደረጃ 3 — PAYchat Mini App ይክፈቱ፦</strong> "PAYchat ላይ ይክፈሉ" የሚለውን ሲነኩ ቀጥታ ወደ @PAYchat_aibot ይወስድዎታል።</li>
-            <li><strong>ደረጃ 4 — ማስታወቂያዎን ይጫኑ፦</strong> የሚለቀቀውን ጽሁፍ፣ ፎቶ ወይም ቪዲዮ እና የሚለቀቅበትን ሰዓት ይምረጡ።</li>
-            <li><strong>ደረጃ 5 — በEscrow ዋስትና ይክፈሉ፦</strong> ማስታወቂያው ቻናሉ ላይ ለ24 ሰዓት ካልተለቀቀ ገንዘብዎ 100% ተመላሽ ይሆናል።</li>
-          </ul>
-          <a href="https://t.me/PAYchat_aibot" class="btn-purple-full partner-link">አሁኑኑ PAYchat ክፈት →</a>
-        `
-      },
-      explained: {
-        title: "የቴሌግራም ማስታወቂያ ማብራሪያ (Channel Posts vs Sponsored Messages)",
-        body: `
-          <p>በቴሌግራም ላይ ማስታወቂያ ለመስራት ሁለት ዋና መንገዶች አሉ፦</p>
-          <ul>
-            <li><strong>1. የቻናል ፖስቶች (In-Channel Posts in USDT)፦</strong> በPAYchat ላይ የሚያገኙት አገልግሎት ነው። የቻናሉ ባለቤት ፎቶ፣ ቪዲዮ እና ሊንክ ያለው ሙሉ ፖስት ለ24 ሰዓት በቻናሉ ላይ ይለቅልዎታል።</li>
-            <li><strong>2. Telegram Official Sponsored Messages፦</strong> ከታች በትንሽ ጽሁፍ ብቻ የሚታይና ከፍተኛ በጀት (በTON) የሚጠይቅ ነው።</li>
-          </ul>
-          <p><strong>ለምን PAYchat ይመረጣል?</strong> ከ1 USDT ጀምሮ በቋሚ ዋጋ፣ ያለምንም ተጨማሪ ኮሚሽን (0% fee) በቀጥታ ለኢትዮጵያውያን ታዳሚዎች መድረስ ስለሚያስችል ነው።</p>
-        `
-      },
-      topics: {
-        title: "የቴሌግራም ቻናሎችን በዘርፍ እንዴት መምረጥ ይቻላል?",
-        body: `
-          <p>ትክክለኛውን ደንበኛ ለማግኘት ከንግድዎ ጋር የሚሄድ ዘርፍ መምረጥ ወሳኝ ነው፦</p>
-          <ul>
-            <li><strong>ስፖርት እና መዝናኛ፦</strong> ለሰፊ ተደራሽነት፣ ለአፕሊኬሽኖች እና ለቲክቶክ/ዩቲዩብ ቻናል ማሳደጊያ ተስማሚ ነው።</li>
-            <li><strong>ክሪፕቶ እና ንግድ፦</strong> ለፋይናንስ፣ ለትሬዲንግ እና ለኦንላይን ቢዝነስ ማስታወቂያዎች ከፍተኛ ውጤት ያስገኛል።</li>
-            <li><strong>ዜና፣ ቴክኖሎጂ እና ሙዚቃ፦</strong> ለብራንድ ማስተዋወቂያ እና ለዲጂታል አገልግሎቶች በጣም ተመራጭ ነው።</li>
-          </ul>
-          <button class="btn-purple-full" onclick="goTab('browse', document.querySelectorAll('.nav-btn')[0])">ቻናሎችን አሁን ይመልከቱ →</button>
-        `
-      },
-      plan: {
-        title: "እቅድ እና ልኬት (Reach, Views & ERR)",
-        body: `<p>ማስታወቂያ ከመግዛትዎ በፊት የቻናሉን <strong>Avg. views (አማካይ እይታ)</strong> እና <strong>Reach / ERR</strong> ይመልከቱ። ከ15% በላይ Reach ያላቸው ቻናሎች ንቁ ተከታዮች አሏቸው።</p>`
-      },
-      prices: {
-        title: "የማስታወቂያ ዋጋዎች (Pricing & 0% Fee)",
-        body: `<p>በEthio PAYchat Ads ላይ <strong>0% ተጨማሪ ክፍያ</strong> ነው። የቻናሉ ባለቤት ያስቀመጠውን ቀጥተኛ ዋጋ (ከ1 USDT ጀምሮ) ብቻ ይከፍላሉ። አዲስ ተመዝጋቢዎች እስከ <strong>$30 ቦነስ</strong> ማግኘት ይችላሉ።</p>`
-      },
-      regions: {
-        title: "ሀገራት እና ቋንቋዎች (ኢትዮጵያ እና ዓለም አቀፍ)",
-        body: `<p>Browse ገጽ ላይ ያለውን የሀገር መምረጫ (<strong>🇪🇹 ኢትዮጵያ</strong> ወይም <strong>🌐 ዓለም አቀፍ</strong>) በመጠቀም በአማርኛ ወይም በእንግሊዝኛ የሚሰሩ ቻናሎችን ለይተው ማግኘት ይችላሉ።</p>`
-      },
-      owners: {
-        title: "ለቻናል ባለቤቶች — ቻናልዎን ወደ ገቢ ይቀይሩ",
-        body: `<p>የቴሌግራም ቻናል ካለዎት በ<strong>@PAYchat_aibot</strong> ላይ በነጻ በማስመዝገብ የማስታወቂያ ዋጋዎን እራስዎ ወስነው በቀጥታ <strong>USDT</strong> መቀበል ይችላሉ።</p><button class="btn-purple-full" onclick="openOwnerModal()">አመዘጋገቡን እይ →</button>`
-      },
-      help: {
-        title: "እገዛ እና የደንበኞች ድጋፍ",
-        body: `<p>ስለ ክፍያ፣ ስለ Escrow ዋስትና ወይም ስለ ማስታወቂያ አሰራር ጥያቄ ካለዎት ከታች ባለው የማህበረሰብ ግሩፕ (<strong>@paychat_group</strong>) ወይም ቦት (<strong>@PAYchat_aibot</strong>) ያግኙን።</p>`
-      }
-    };
-
+    let channels = [];
     let curCat = 'all';
     let maxBudget = 99999;
     let cart = [];
 
-    function applyPartnerCode() {
-      if (!CONFIG.PARTNER_REF_CODE) return;
-      document.querySelectorAll('.partner-link').forEach(a => {
-        a.href = 'https://t.me/PAYchat_aibot' + CONFIG.PARTNER_REF_CODE;
-      });
+    function formatNum(n) {
+      if (!n) return "0";
+      if (n >= 1000000) return (n / 1000000).toFixed(1) + "M";
+      if (n >= 1000) return (n / 1000).toFixed(1) + "K";
+      return String(n);
     }
 
-    function openOwnerModal() { document.getElementById('owner-modal').style.display = 'flex'; }
-    function closeOwnerModal() { document.getElementById('owner-modal').style.display = 'none'; }
-
-    function openArticle(key) {
-      const art = guideArticles[key];
-      if (!art) return;
-      document.getElementById('guides-home').style.display = 'none';
-      const reader = document.getElementById('guide-reader');
-      reader.style.display = 'block';
-      reader.innerHTML = `
-        <div class="article-box">
-          <button class="btn-back-guides" onclick="closeArticle()">← ወደ መመሪያዎች ተመለስ</button>
-          <h3>${art.title}</h3>
-          ${art.body}
-        </div>
-      `;
-      applyPartnerCode();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    function extractPrice(pricesObj) {
+      if (!pricesObj) return 0;
+      if (typeof pricesObj === "number") return pricesObj;
+      const vals = Object.values(pricesObj).map(v => parseFloat(v)).filter(v => !isNaN(v) && v > 0);
+      return vals.length > 0 ? Math.min(...vals) : 0;
     }
 
-    function closeArticle() {
-      document.getElementById('guide-reader').style.display = 'none';
-      document.getElementById('guides-home').style.display = 'block';
+    async function loadChannels(forceRefresh = false) {
+      const statusEl = document.getElementById('api-status');
+      const langFilter = document.getElementById('lang-filter').value;
+      const cacheKey = "paychat_et_cache_" + langFilter;
+
+      if (PAYCHAT_API_KEY === "YOUR_API_KEY_HERE" || !PAYCHAT_API_KEY.trim()) {
+        statusEl.innerHTML = "⚠️ እባክህ መጀመሪያ የአንተን API Key በኮዱ ውስጥ <code>PAYCHAT_API_KEY</code> ቦታ ላይ አስገባ።";
+        return;
+      }
+
+      // 5 ደቂቃ Cache (በደቂቃ 300 ገደብ እንዳይታለፍ)
+      if (!forceRefresh) {
+        const cached = localStorage.getItem(cacheKey);
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (Date.now() - parsed.time < 5 * 60 * 1000) {
+            channels = parsed.data;
+            statusEl.innerHTML = `✅ ${channels.length} የኢትዮጵያ ቻናሎች ከPAYchat ተጭነዋል።`;
+            renderList();
+            return;
+          }
+        }
+      }
+
+      statusEl.innerHTML = "⏳ የኢትዮጵያ ቻናሎችን ከPAYchat ሰርቨር በማምጣት ላይ...";
+      let url = `${API_BASE}/channels?country=ET&limit=100&offset=0`;
+      if (langFilter === "ET_AM") url += "&lang=am";
+
+      try {
+        const res = await fetch(url, {
+          headers: { "X-API-Key": PAYCHAT_API_KEY.trim() }
+        });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const json = await res.json();
+        const rawList = json.channels || json.data || json.items || (Array.isArray(json) ? json : []);
+
+        channels = rawList.map((c, idx) => {
+          const members = Number(c.members || c.subscribers || 0);
+          const avgViews = Number(c.avg_views || 0);
+          const err = members > 0 ? Math.round((avgViews / members) * 100) + "%" : "—";
+          return {
+            id: c.id || c.channel_id || idx + 1,
+            name: c.title || c.name || "Unnamed Channel",
+            handle: c.username ? (c.username.startsWith("@") ? c.username : "@" + c.username) : "",
+            cat: c.category || "መዝናኛ",
+            photo: c.photo_url || "",
+            subs: formatNum(members),
+            avg: formatNum(avgViews),
+            avgRaw: avgViews,
+            err: err,
+            price: extractPrice(c.prices),
+            metricsHtml: c.metrics_html || "",
+            recentHtml: c.recent_posts_html || ""
+          };
+        });
+
+        localStorage.setItem(cacheKey, JSON.stringify({ time: Date.now(), data: channels }));
+        statusEl.innerHTML = `✅ ${channels.length} የኢትዮጵያ ቻናሎች ከPAYchat በቀጥታ ተጭነዋል።`;
+        renderList();
+      } catch (err) {
+        statusEl.innerHTML = `❌ ቻናሎችን መጫን አልተቻለም (${err.message})። API Key-ህን ትክክለኛነት አረጋግጥ።`;
+      }
     }
 
     function renderList() {
       const q = document.getElementById('search-input').value.toLowerCase();
-      const country = document.getElementById('country-filter').value;
       const sort = document.getElementById('sort-filter').value;
       const box = document.getElementById('channels-list');
       box.innerHTML = '';
 
       let list = channels.filter(c => {
-        const mCat = curCat === 'all' || c.cat === curCat;
-        const mCountry = country === 'all' || c.country === country;
+        const mCat = curCat === 'all' || (c.cat && c.cat.toLowerCase().includes(curCat.toLowerCase()));
         const mBudget = c.price <= maxBudget;
-        const mQuery = c.name.toLowerCase().includes(q) || c.cat.includes(q) || c.handle.toLowerCase().includes(q);
-        return mCat && mCountry && mBudget && mQuery;
+        const mQuery = c.name.toLowerCase().includes(q) || c.handle.toLowerCase().includes(q);
+        return mCat && mBudget && mQuery;
       });
 
       if (sort === 'low') list.sort((a, b) => a.price - b.price);
+      if (sort === 'views') list.sort((a, b) => b.avgRaw - a.avgRaw);
       document.getElementById('ch-count-label').innerText = `(${list.length})`;
 
       list.forEach(c => {
         const added = cart.some(x => x.id === c.id);
+        const avatarHtml = c.photo ? `<img src="${c.photo}" alt="">` : c.name.substring(0, 2);
         box.innerHTML += `
           <div class="ch-card">
             <div class="ch-top">
               <div class="ch-left">
-                <div class="ch-avatar">${c.name.substring(0,2)}</div>
+                <div class="ch-avatar">${avatarHtml}</div>
                 <div>
                   <div class="verified-row">
                     <span class="v-badge">✔ Verified</span>
-                    <span class="n-badge">☆ New</span>
                   </div>
                   <div class="ch-title">${c.name}</div>
                   <div class="ch-handle">${c.handle}</div>
@@ -490,20 +372,58 @@
               <span class="gray-tag">${c.cat}</span>
               <span class="gray-tag">🇪🇹 ኢትዮጵያ</span>
             </div>
-            <div style="font-size:12px; color:#6b7280; margin-bottom:10px;">👁 ${c.viewsList} Listing views</div>
             <div class="stats-grid">
               <div><div class="st-val">${c.subs}</div><div class="st-lbl">Subscribers</div></div>
               <div><div class="st-val">${c.avg}</div><div class="st-lbl">Avg. views</div></div>
               <div><div class="st-val">${c.err}</div><div class="st-lbl">Reach / ERR</div></div>
             </div>
             <div class="price-text">${c.price.toFixed(2)} <span>USDT</span></div>
-            <button class="btn-add-cart ${added ? 'added' : ''}" onclick="toggleCart(${c.id})">
+            <button class="btn-add-cart ${added ? 'added' : ''}" onclick="toggleCart('${c.id}')">
               ${added ? '✓ ቅርጫት ውስጥ ገብቷል' : '🛒 ወደ ቅርጫት ጨምር (Add to cart)'}
             </button>
-            <button class="btn-details" onclick="alert('${c.name}\\nተከታዮች: ${c.subs}\\nአማካይ እይታ: ${c.avg}\\nዋጋ: ${c.price.toFixed(2)} USDT')">📊 ዝርዝር መረጃ (Analytics & details)</button>
+            <button class="btn-details" onclick="openDetails('${c.id}')">📊 ዝርዝር መረጃ (Analytics & posts)</button>
           </div>
         `;
       });
+    }
+
+    function openDetails(id) {
+      const c = channels.find(x => String(x.id) === String(id));
+      if (!c) return;
+      const body = document.getElementById('details-modal-body');
+      body.innerHTML = `
+        <h3 style="font-size:18px; font-weight:800; margin-bottom:6px;">${c.name}</h3>
+        <p style="font-size:13px; color:#6b7280; margin-bottom:12px;">${c.handle} • ዋጋ: <strong>${c.price.toFixed(2)} USDT</strong></p>
+        ${c.metricsHtml ? `<div style="margin-bottom:12px;">${c.metricsHtml}</div>` : ''}
+        ${c.recentHtml ? `<div style="margin-bottom:12px;">${c.recentHtml}</div>` : `<p style="font-size:13px;">ተከታዮች: ${c.subs} | አማካይ እይታ: ${c.avg}</p>`}
+        <button class="btn-purple-full" onclick="closeDetailsModal()">ዝጋ</button>
+      `;
+      document.getElementById('details-modal').style.display = 'flex';
+    }
+    function closeDetailsModal() { document.getElementById('details-modal').style.display = 'none'; }
+
+    async function checkoutWithApi() {
+      const btn = document.getElementById('checkout-btn');
+      btn.innerText = "⏳ መክፈያ በመፍጠር ላይ...";
+      btn.disabled = true;
+      try {
+        const res = await fetch(`${API_BASE}/checkouts`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-API-Key": PAYCHAT_API_KEY.trim()
+          },
+          body: JSON.stringify({
+            channel_ids: cart.map(c => c.id),
+            channels: cart.map(c => ({ id: c.id, username: c.handle }))
+          })
+        });
+        const data = await res.json();
+        const checkoutUrl = data.checkout_url || data.url || data.telegram_url || "https://t.me/PAYchat_aibot";
+        window.location.href = checkoutUrl;
+      } catch (e) {
+        window.location.href = "https://t.me/PAYchat_aibot";
+      }
     }
 
     function renderCart() {
@@ -513,7 +433,7 @@
           <div class="white-box" style="text-align:center; padding:32px 16px;">
             <div style="font-size:34px; margin-bottom:8px;">🛒</div>
             <h3 style="font-size:18px; font-weight:800; margin-bottom:6px;">ቅርጫትዎ ባዶ ነው</h3>
-            <p style="font-size:13px; color:#6b7280; margin-bottom:16px;">ማስታወቂያ ለመጀመር አንድ ወይም ከዚያ በላይ የቴሌግራም ቻናሎችን ይምረጡ።</p>
+            <p style="font-size:13px; color:#6b7280; margin-bottom:16px;">ማስታወቂያ ለመጀመር ቻናሎችን ይምረጡ።</p>
             <button class="btn-purple-full" style="max-width:220px; margin:0 auto;" onclick="goTab('browse', document.querySelectorAll('.nav-btn')[0])">ቻናሎችን ይመልከቱ</button>
           </div>
         `;
@@ -523,7 +443,7 @@
       let html = cart.map(i => `
         <div class="white-box" style="display:flex; justify-content:space-between; align-items:center;">
           <div><strong>${i.name}</strong><div style="font-size:12px; color:#6b7280;">${i.price.toFixed(2)} USDT</div></div>
-          <button onclick="toggleCart(${i.id})" style="background:#fee2e2; color:#b91c1c; border:none; padding:6px 12px; border-radius:8px; font-weight:700; cursor:pointer;">አጥፋ</button>
+          <button onclick="toggleCart('${i.id}')" style="background:#fee2e2; color:#b91c1c; border:none; padding:6px 12px; border-radius:8px; font-weight:700; cursor:pointer;">አጥፋ</button>
         </div>
       `).join('');
       html += `
@@ -531,18 +451,17 @@
           <div style="display:flex; justify-content:space-between; font-weight:800; font-size:16px; margin-bottom:12px;">
             <span>ጠቅላላ ክፍያ:</span><span>${total.toFixed(2)} USDT</span>
           </div>
-          <a href="https://t.me/PAYchat_aibot" class="btn-purple-full partner-link" style="background:#16a34a;">PAYchat ላይ ይክፈሉ (${total.toFixed(2)} USDT) →</a>
+          <button id="checkout-btn" onclick="checkoutWithApi()" class="btn-purple-full" style="background:#16a34a;">PAYchat ላይ ይክፈሉ (${total.toFixed(2)} USDT) →</button>
         </div>
       `;
       box.innerHTML = html;
-      applyPartnerCode();
     }
 
     function toggleCart(id) {
-      const item = channels.find(x => x.id === id);
-      const idx = cart.findIndex(x => x.id === id);
+      const item = channels.find(x => String(x.id) === String(id));
+      const idx = cart.findIndex(x => String(x.id) === String(id));
       if (idx > -1) cart.splice(idx, 1);
-      else cart.push(item);
+      else if (item) cart.push(item);
       document.getElementById('cart-badge').innerText = cart.length;
       renderList();
       renderCart();
@@ -566,17 +485,36 @@
       el.style.display = el.style.display === 'block' ? 'none' : 'block';
     }
 
+    function openOwnerModal() { document.getElementById('owner-modal').style.display = 'flex'; }
+    function closeOwnerModal() { document.getElementById('owner-modal').style.display = 'none'; }
+
+    const guideArticles = {
+      create: { title: "በPAYchat ላይ ማስታወቂያ እንዴት መፍጠር ይቻላል?", body: `<p>1. ቻናሎችን ይምረጡ እና ወደ ቅርጫት ይጨምሩ።<br>2. Cart ውስጥ ገብተው "PAYchat ላይ ይክፈሉ" የሚለውን ይንኩ።<br>3. በUSDT Escrow ዋስትና ክፍያዎን ይፈጽሙ።</p>` },
+      prices: { title: "የማስታወቂያ ዋጋዎች (0% Fee)", body: `<p>በEthio PAYchat Ads ላይ 0% ተጨማሪ ኮሚሽን ነው። የቻናሉ ባለቤት ያስቀመጠውን ቀጥተኛ ዋጋ ብቻ ይከፍላሉ።</p>` },
+      owners: { title: "ለቻናል ባለቤቶች", body: `<p>ቻናልዎን በ@PAYchat_aibot ላይ በነጻ በማስመዝገብ በቀጥታ USDT ገቢ ያግኙ።</p>` }
+    };
+
+    function openArticle(key) {
+      const art = guideArticles[key];
+      document.getElementById('guides-home').style.display = 'none';
+      const reader = document.getElementById('guide-reader');
+      reader.style.display = 'block';
+      reader.innerHTML = `<div class="article-box"><button class="btn-back-guides" onclick="closeArticle()">← ተመለስ</button><h3>${art.title}</h3>${art.body}</div>`;
+    }
+    function closeArticle() {
+      document.getElementById('guide-reader').style.display = 'none';
+      document.getElementById('guides-home').style.display = 'block';
+    }
+
     function goTab(name, btn) {
       document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
       document.getElementById('page-' + name).classList.add('active');
       document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       if (name === 'cart') renderCart();
-      if (name === 'guides') closeArticle();
     }
 
-    applyPartnerCode();
-    renderList();
+    loadChannels();
   </script>
 </body>
 </html>
