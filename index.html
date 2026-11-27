@@ -81,7 +81,7 @@
 <body>
   <header>
     <div class="brand"><div class="brand-icon">⚡</div> Ethio <span>PAYchat Ads</span></div>
-    <a href="https://t.me/PAYchat_aibot/app" class="btn-open-top">PAYchat ክፈት</a>
+    <a href="https://paychat.info/a/escf_8556328355" class="btn-open-top">PAYchat ክፈት</a>
   </header>
 
   <div id="page-browse" class="tab-page active">
@@ -95,7 +95,7 @@
           </div>
         </div>
       </div>
-      <a href="https://t.me/PAYchat_aibot/app" class="btn-purple-full">ይመዝገቡ እና $30 ያግኙ</a>
+      <a href="https://paychat.info/a/escf_8556328355" class="btn-purple-full">ይመዝገቡ እና $30 ያግኙ</a>
     </div>
 
     <div class="trust-strip">
@@ -184,7 +184,7 @@
 
     <div class="official-section">
       <div class="official-title">ኦፊሴላዊ የPAYchat ድጋፍ እና የሶሻል ቻናሎች</div>
-      <a href="https://t.me/PAYchat_aibot/app" class="official-link">✈️ Mini App (@PAYchat_aibot) ↗</a>
+      <a href="https://paychat.info/a/escf_8556328355" class="official-link">✈️ Mini App (@PAYchat_aibot) ↗</a>
       <a href="https://paychatads.com" target="_blank" class="official-link">🌐 ዋናው ዓለም አቀፍ ገጽ (PAYchat Ads) ↗</a>
       <a href="https://t.me/paychat_group" class="official-link">💬 ማህበረሰብ (Community) ↗</a>
       <p style="font-size:12px; color:#9ca3af; margin-top:12px;">© 2026 Ethio PAYchat Ads — Powered by PAYchat Partner API.</p>
@@ -198,7 +198,7 @@
       <div class="step-mini"><strong>1. PAYchat ቦት ይክፈቱ፦</strong> @PAYchat_aibot ይክፈቱ።</div>
       <div class="step-mini"><strong>2. "Add Channel" ይምረጡ፦</strong> ቻናልዎን ያስገቡና ቦቱን Admin ያድርጉት።</div>
       <div class="step-mini"><strong>3. ዋጋዎን ይወስኑ፦</strong> ለአንድ ማስታወቂያ የሚያስከፍሉትን ዋጋ በUSDT ያስቀምጡ!</div>
-      <a href="https://t.me/PAYchat_aibot/app" class="btn-purple-full" style="margin-top:12px;">አሁኑኑ ቻናልዎን ያስመዝግቡ →</a>
+      <a href="https://paychat.info/a/escf_8556328355" class="btn-purple-full" style="margin-top:12px;">አሁኑኑ ቻናልዎን ያስመዝግቡ →</a>
       <button onclick="closeOwnerModal()" style="width:100%; background:none; border:none; color:#6b7280; font-weight:700; margin-top:10px; cursor:pointer;">ዝጋ</button>
     </div>
   </div>
@@ -214,6 +214,7 @@
   </nav>
 
   <script>
+    const REF_URL = 'https://paychat.info/a/escf_8556328355';
     let channels = [];
     let curCat = 'all';
     let maxBudget = 99999;
@@ -257,12 +258,15 @@
       return 0;
     }
 
-    // Direct PAYchat Mini App checkout link using canonical_url returned by Partner API
+    function withRef(url) {
+      if (!url) return REF_URL;
+      return url.includes('?') ? url + '&ref=escf_8556328355' : url + '?ref=escf_8556328355';
+    }
+
     function getDirectCheckoutUrl(selectedItems) {
-      if (!selectedItems || selectedItems.length === 0) return 'https://t.me/PAYchat_aibot/app';
+      if (!selectedItems || selectedItems.length === 0) return REF_URL;
       const primary = selectedItems[0];
-      if (primary.canonicalUrl) return primary.canonicalUrl;
-      return `https://paychat.info/ads/${primary.id}`;
+      return withRef(primary.canonicalUrl || `https://paychat.info/ads/${primary.id}`);
     }
 
     function buildCategoryTabs() {
@@ -433,7 +437,7 @@
             </div>
           </div>
           <div style="display:flex; gap:6px; align-items:center;">
-            <a href="${i.canonicalUrl}" target="_blank" style="background:#eef2ff; color:#5b46f6; padding:7px 10px; border-radius:8px; font-weight:700; font-size:12px;">ክፈት →</a>
+            <a href="${withRef(i.canonicalUrl)}" target="_blank" style="background:#eef2ff; color:#5b46f6; padding:7px 10px; border-radius:8px; font-weight:700; font-size:12px;">ክፈት →</a>
             <button onclick="toggleCart('${i.id}')" style="background:#fee2e2; color:#b91c1c; border:none; padding:7px 10px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer;">🗑️</button>
           </div>
         </div>
