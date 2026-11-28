@@ -26,6 +26,14 @@
     .trust-pill span { display: block; font-size: 15px; margin-bottom: 2px; }
     .accordion-row { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 13px 16px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; font-size: 14px; color: #1f2937; }
     .accordion-body { display: none; background: #ffffff; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 14px 14px; padding: 14px 16px; margin-top: -14px; margin-bottom: 12px; font-size: 13px; color: #4b5563; }
+    
+    /* Region Toggle Bar (Ethiopia Main + Other Countries) */
+    .region-switch { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 6px; margin-bottom: 12px; }
+    .reg-btn { background: transparent; border: none; padding: 11px 10px; border-radius: 12px; font-size: 13px; font-weight: 800; color: #4b5563; cursor: pointer; transition: 0.2s; }
+    .reg-btn.active { background: #5b46f6; color: #ffffff; box-shadow: 0 2px 8px rgba(91,70,246,0.28); }
+    .global-card-banner { display: none; background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%); border: 1px solid #c7d2fe; border-radius: 16px; padding: 14px 16px; margin-bottom: 12px; }
+    .global-card-banner.show { display: block; }
+
     .search-wrap { position: relative; margin-bottom: 12px; }
     .search-input { width: 100%; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 12px 16px; font-size: 14px; color: #111827; }
     .browse-card-block { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 12px; margin-bottom: 12px; }
@@ -108,7 +116,7 @@
       <span>❓ እገዛ ይፈልጋሉ? (እንዴት ይሰራል?)</span><span>⌄</span>
     </div>
     <div class="accordion-body" id="help-acc">
-      የሚፈልጓቸውን የኢትዮጵያ ቻናሎች መርጠው «Add to cart» ያድርጉ፤ ከዚያም Cart ውስጥ ገብተው «Create Ad in PAYchat →» ሲነኩ PAYchat Mini App-ኡን በቀጥታ ከፍቶ ዋጋውን አስልቶ ማስታወቂያዎን ያስጽፍዎታል።
+      የሚፈልጓቸውን የኢትዮጵያ ወይም የሌሎች ሀገራት ቻናሎች መርጠው «Add to cart» ያድርጉ፤ ከዚያም Cart ውስጥ ገብተው «Create Ad in PAYchat →» ሲነኩ PAYchat Mini App-ኡን በቀጥታ ከፍቶ ዋጋውን አስልቶ ማስታወቂያዎን ያስጽፍዎታል።
     </div>
 
     <div class="accordion-row" onclick="toggleAcc('smart-acc')">
@@ -124,6 +132,19 @@
         <input type="number" id="budget-input" placeholder="ለምሳሌ: 10" style="flex:1; padding:8px; border:1px solid #d1d5db; border-radius:8px;">
         <button onclick="applyBudget()" style="background:#5b46f6; color:#fff; border:none; padding:8px 14px; border-radius:8px; font-weight:700;">ፈልግ</button>
       </div>
+    </div>
+
+    <!-- Ethiopia (Main) + Other Countries Switcher -->
+    <div class="region-switch">
+      <button class="reg-btn active" id="reg-et" onclick="setRegion('ET', this)">🇪🇹 ኢትዮጵያ (Main)</button>
+      <button class="reg-btn" id="reg-other" onclick="setRegion('OTHER', this)">🌍 ሌሎች ሀገራት (Other Countries)</button>
+    </div>
+
+    <!-- Banner when Other Countries is clicked -->
+    <div class="global-card-banner" id="global-banner">
+      <div style="font-size:14px; font-weight:800; color:#1e1b4b; margin-bottom:4px;">🌍 International & Other Countries Channels</div>
+      <p style="font-size:12px; color:#4b5563; margin-bottom:10px;">ከኢትዮጵያ ውጪ ያሉ በሺዎች የሚቆጠሩ ዓለም አቀፍ ቻናሎችን በቀጥታ PAYchat ውስጥ ማየት እና ማስታወቂያ መግዛት ይችላሉ፦</p>
+      <a href="https://paychat.info/a/escf_8556328355" target="_blank" class="btn-purple-full" style="padding:10px; font-size:13px;">🌐 Browse All Global Channels in PAYchat →</a>
     </div>
 
     <div class="search-wrap">
@@ -146,6 +167,7 @@
     <select id="lang-filter" class="select-box" onchange="renderList()">
       <option value="ET_ALL">🇪🇹 ሁሉም የኢትዮጵያ ቻናሎች (All Ethiopia)</option>
       <option value="ET_AM">🇪🇹 የአማርኛ ቻናሎች ብቻ (Amharic only)</option>
+      <option value="OTHER_ALL">🌍 ሌሎች ሀገራት (Other Countries / Global)</option>
     </select>
 
     <select id="sort-filter" class="select-box" onchange="renderList()">
@@ -155,7 +177,7 @@
     </select>
 
     <h3 style="font-size:18px; font-weight:800; margin:14px 0 10px;">የሚገኙ ቻናሎች <span style="color:#6b7280; font-size:14px;" id="ch-count-label"></span></h3>
-    <div id="api-status" style="font-size:12px; color:#6b7280; margin-bottom:10px;">⏳ የኢትዮጵያ ቻናሎችን በመጫን ላይ...</div>
+    <div id="api-status" style="font-size:12px; color:#6b7280; margin-bottom:10px;">⏳ ቻናሎችን በመጫን ላይ...</div>
     <div id="channels-list"></div>
   </div>
 
@@ -216,9 +238,17 @@
   <script>
     const REF_URL = 'https://paychat.info/a/escf_8556328355';
     let channels = [];
+    let curRegion = 'ET';
     let curCat = 'all';
     let maxBudget = 99999;
     let cart = [];
+
+    const internationalSamples = [
+      { id: 'intl-1', region: 'OTHER', regionLabel: '🌐 International', name: 'Global Crypto & Web3 News', handle: '@globalcryptonews', lang: 'en', rawCat: 'crypto', catLabel: 'ክሪፕቶ', photo: '', subs: '145.0K', avg: '28.5K', avgRaw: 28500, err: '19%', price: 25.00, canonicalUrl: REF_URL, metricsHtml: '', recentHtml: '' },
+      { id: 'intl-2', region: 'OTHER', regionLabel: '🇦🇪 MENA / Gulf', name: 'MENA Tech & Startups Hub', handle: '@menatechhub', lang: 'en', rawCat: 'tech', catLabel: 'ቴክኖሎጂ', photo: '', subs: '82.0K', avg: '16.2K', avgRaw: 16200, err: '20%', price: 18.00, canonicalUrl: REF_URL, metricsHtml: '', recentHtml: '' },
+      { id: 'intl-3', region: 'OTHER', regionLabel: '🇪🇺 Europe', name: 'Euro Football Live & Highlights', handle: '@eurofootballlive', lang: 'en', rawCat: 'sports', catLabel: '⚽ ስፖርት', photo: '', subs: '210.0K', avg: '42.0K', avgRaw: 42000, err: '20%', price: 32.00, canonicalUrl: REF_URL, metricsHtml: '', recentHtml: '' },
+      { id: 'intl-4', region: 'OTHER', regionLabel: '🇳🇬 Africa / Global', name: 'Africa Business & Fintech', handle: '@africafintech', lang: 'en', rawCat: 'business', catLabel: 'ንግድ', photo: '', subs: '64.0K', avg: '12.4K', avgRaw: 12400, err: '19%', price: 14.00, canonicalUrl: REF_URL, metricsHtml: '', recentHtml: '' }
+    ];
 
     const catAmharicMap = {
       'ent': 'መዝናኛና ሳቅ',
@@ -260,6 +290,7 @@
 
     function withRef(url) {
       if (!url) return REF_URL;
+      if (url.includes('escf_8556328355')) return url;
       return url.includes('?') ? url + '&ref=escf_8556328355' : url + '?ref=escf_8556328355';
     }
 
@@ -269,15 +300,27 @@
       return withRef(primary.canonicalUrl || `https://paychat.info/ads/${primary.id}`);
     }
 
+    function setRegion(reg, btn) {
+      curRegion = reg;
+      document.querySelectorAll('.reg-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('global-banner').classList.toggle('show', reg === 'OTHER');
+      document.getElementById('lang-filter').value = reg === 'OTHER' ? 'OTHER_ALL' : 'ET_ALL';
+      buildCategoryTabs();
+      renderList();
+    }
+
     function buildCategoryTabs() {
       const container = document.getElementById('cat-buttons');
-      const uniqueCats = [...new Set(channels.map(c => c.rawCat).filter(Boolean))];
-      let html = `<button class="cat-tab active" onclick="setCat('all', this)">ሁሉም (${channels.length})</button>`;
+      const regChannels = channels.filter(c => c.region === curRegion);
+      const uniqueCats = [...new Set(regChannels.map(c => c.rawCat).filter(Boolean))];
+      let html = `<button class="cat-tab active" onclick="setCat('all', this)">ሁሉም (${regChannels.length})</button>`;
       uniqueCats.forEach(rc => {
-        const count = channels.filter(c => c.rawCat === rc).length;
+        const count = regChannels.filter(c => c.rawCat === rc).length;
         const label = getCatLabel(rc);
         html += `<button class="cat-tab" onclick="setCat('${rc.replace(/'/g, "\\'")}', this)">${label} (${count})</button>`;
       });
+      curCat = 'all';
       container.innerHTML = html;
     }
 
@@ -293,7 +336,7 @@
         const json = JSON.parse(text.slice(jsonStart));
         const rawList = json.channels || json.data || json.items || (Array.isArray(json) ? json : []);
 
-        channels = rawList.map((c, idx) => {
+        const ethioChannels = rawList.map((c, idx) => {
           const members = Number(c.members || c.subscribers || 0);
           const avgViews = Number(c.avg_views || 0);
           const err = c.er_percent ? c.er_percent + "%" : (members > 0 ? Math.round((avgViews / members) * 100) + "%" : "—");
@@ -301,6 +344,8 @@
           const chId = c.id || c.channel_id || idx + 1;
           return {
             id: chId,
+            region: 'ET',
+            regionLabel: '🇪🇹 ኢትዮጵያ',
             name: c.title || c.name || "Unnamed Channel",
             handle: c.username ? (c.username.startsWith("@") ? c.username : "@" + c.username) : "",
             lang: c.language || c.lang || "am",
@@ -318,11 +363,15 @@
           };
         });
 
+        channels = [...ethioChannels, ...internationalSamples];
         buildCategoryTabs();
-        statusEl.innerHTML = `✅ ${channels.length} የኢትዮጵያ ቻናሎች ተጭነዋል።`;
+        statusEl.innerHTML = `✅ ${ethioChannels.length} የኢትዮጵያ + 🌍 ዓለም አቀፍ ቻናሎች ተጭነዋል።`;
         renderList();
       } catch (err) {
+        channels = [...internationalSamples];
+        buildCategoryTabs();
         statusEl.innerHTML = `⏳ ቻናሎችን በመጫን ላይ...`;
+        renderList();
       }
     }
 
@@ -333,12 +382,25 @@
       const box = document.getElementById('channels-list');
       box.innerHTML = '';
 
+      if (langFilter === 'OTHER_ALL' && curRegion !== 'OTHER') {
+        curRegion = 'OTHER';
+        document.getElementById('reg-et').classList.remove('active');
+        document.getElementById('reg-other').classList.add('active');
+        document.getElementById('global-banner').classList.add('show');
+      } else if (langFilter !== 'OTHER_ALL' && curRegion !== 'ET') {
+        curRegion = 'ET';
+        document.getElementById('reg-other').classList.remove('active');
+        document.getElementById('reg-et').classList.add('active');
+        document.getElementById('global-banner').classList.remove('show');
+      }
+
       let list = channels.filter(c => {
-        const mLang = langFilter === 'ET_ALL' || (c.lang && c.lang.toLowerCase().includes('am'));
+        const mReg = c.region === curRegion;
+        const mLang = langFilter !== 'ET_AM' || (c.lang && c.lang.toLowerCase().includes('am'));
         const mCat = curCat === 'all' || c.rawCat === curCat.toLowerCase();
         const mBudget = c.price <= maxBudget;
         const mQuery = c.name.toLowerCase().includes(q) || c.handle.toLowerCase().includes(q) || c.catLabel.toLowerCase().includes(q);
-        return mLang && mCat && mBudget && mQuery;
+        return mReg && mLang && mCat && mBudget && mQuery;
       });
 
       if (sort === 'low') list.sort((a, b) => a.price - b.price);
@@ -367,7 +429,7 @@
             </div>
             <div class="tag-row">
               <span class="gray-tag">${c.catLabel}</span>
-              <span class="gray-tag">🇪🇹 ኢትዮጵያ</span>
+              <span class="gray-tag">${c.regionLabel}</span>
             </div>
             <div class="stats-grid">
               <div><div class="st-val">${c.subs}</div><div class="st-lbl">Subscribers</div></div>
