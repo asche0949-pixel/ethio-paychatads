@@ -20,6 +20,15 @@ jobs:
           api_key = os.environ["API_KEY"].strip()
           headers = {"X-API-Key": api_key, "User-Agent": "EthioPAYchat/1.0"}
 
+          def clean_obj(obj):
+              if isinstance(obj, str):
+                  return obj.encode("utf-8", "ignore").decode("utf-8")
+              if isinstance(obj, list):
+                  return [clean_obj(i) for i in obj]
+              if isinstance(obj, dict):
+                  return {k: clean_obj(v) for k, v in obj.items()}
+              return obj
+
           def fetch_all(query_str):
               items = []
               offset = 0
@@ -30,7 +39,8 @@ jobs:
                   req = urllib.request.Request(url, headers=headers)
                   try:
                       with urllib.request.urlopen(req) as resp:
-                          data = json.loads(resp.read().decode("utf-8"))
+                          raw = resp.read().decode("utf-8", "ignore")
+                          data = json.loads(raw)
                   except Exception as e:
                       print(f"Error fetching {url}: {e}")
                       break
@@ -42,11 +52,11 @@ jobs:
                   offset += limit
                   if len(batch) < limit or (total and offset >= total):
                       break
-              return items
+              return clean_obj(items)
 
           ethio = fetch_all("country=ET")
           with open("channels.json", "w", encoding="utf-8") as f:
-              json.dump({"channels": ethio}, f, ensure_ascii=False)
+              json.dump({"channels": ethio}, f, ensure_ascii=True)
 
           global_list = fetch_all("country=GLOBAL")
           all_list = fetch_all("")
@@ -62,7 +72,7 @@ jobs:
                   seen.add(cid)
 
           with open("global_channels.json", "w", encoding="utf-8") as f:
-              json.dump({"channels": combined}, f, ensure_ascii=False)
+              json.dump({"channels": combined}, f, ensure_ascii=True)
 
           print(f"Synced {len(ethio)} Ethiopia and {len(combined)} Global channels.")
           EOF
