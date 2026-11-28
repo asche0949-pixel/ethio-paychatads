@@ -12,12 +12,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Fetch Ethiopian and Global Channels
         env:
-          API_KEY: ${{ secrets.PAYCHAT_API_KEY }}
+          API_KEY: pk_73322f48768ebe5bbd3014289b29ef3948a1289ac2c411a7
         run: |
           python3 - << 'EOF'
           import json, urllib.request, os
 
-          api_key = os.environ["pk_73322f48768ebe5bbd3014289b29ef3948a1289ac2c411a7"]
+          api_key = os.environ["API_KEY"].strip()
           headers = {"X-API-Key": api_key, "User-Agent": "EthioPAYchat/1.0"}
 
           def fetch_all(query_str):
@@ -28,8 +28,12 @@ jobs:
                   sep = "&" if query_str else ""
                   url = f"https://paychat.info/api/partner/shop/channels?{query_str}{sep}limit={limit}&offset={offset}"
                   req = urllib.request.Request(url, headers=headers)
-                  with urllib.request.urlopen(req) as resp:
-                      data = json.loads(resp.read().decode("utf-8"))
+                  try:
+                      with urllib.request.urlopen(req) as resp:
+                          data = json.loads(resp.read().decode("utf-8"))
+                  except Exception as e:
+                      print(f"Error fetching {url}: {e}")
+                      break
                   batch = data.get("channels") or data.get("data") or data.get("items") or (data if isinstance(data, list) else [])
                   if not batch:
                       break
@@ -40,33 +44,22 @@ jobs:
                       break
               return items
 
-          # 1. Fetch Ethiopia (Main)
           ethio = fetch_all("country=ET")
           with open("channels.json", "w", encoding="utf-8") as f:
               json.dump({"channels": ethio}, f, ensure_ascii=False)
 
-          # 2. Fetch Global + Other Countries (without filtering out)
           global_list = fetch_all("country=GLOBAL")
-          other_list = fetch_all("country=OTHER")
           all_list = fetch_all("")
 
+          ethio_ids = {str(c.get("id") or c.get("channel_id")) for c in ethio}
           combined = []
           seen = set()
-          for source in [global_list, other_list, all_list]:
-              for c in source:
-                  cid = str(c.get("id") or c.get("channel_id"))
-                  country = str(c.get("country") or "").upper()
-                  if cid not in seen and country != "ET":
-                      combined.append(c)
-                      seen.add(cid)
 
-          # Fallback: if API didn't tag country, keep everything from global_list + other_list
-          if not combined:
-              for c in (global_list + other_list + all_list):
-                  cid = str(c.get("id") or c.get("channel_id"))
-                  if cid not in seen:
-                      combined.append(c)
-                      seen.add(cid)
+          for c in (global_list + all_list):
+              cid = str(c.get("id") or c.get("channel_id"))
+              if cid not in seen and cid not in ethio_ids:
+                  combined.append(c)
+                  seen.add(cid)
 
           with open("global_channels.json", "w", encoding="utf-8") as f:
               json.dump({"channels": combined}, f, ensure_ascii=False)
