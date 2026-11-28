@@ -17,7 +17,7 @@ jobs:
           python3 - << 'EOF'
           import json, urllib.request, os
 
-          api_key = os.environ["API_KEY"]
+          api_key = os.environ["pk_73322f48768ebe5bbd3014289b29ef3948a1289ac2c411a7"]
           headers = {"X-API-Key": api_key, "User-Agent": "EthioPAYchat/1.0"}
 
           def fetch_all(params_base):
